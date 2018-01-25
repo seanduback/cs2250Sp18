@@ -31,18 +31,15 @@ int main()
     // sizeof: returns the size of variable in bytes
     num = num * 10000;
     unum = unum * 10000;
-    printf("Num = [%d]\n", num);
-    printf("uNum = [%u]\n", unum);
+    printf("Num = [%d], uNum = [%u]\n", num, unum);
     num *= 10000; 
     unum *= 10000; 
     //compound operator
-    printf("Num = [%d]\n", num);
-    printf("uNum = [%u]\n", unum);
+    printf("Num = [%d], uNum = [%u]\n", num, unum);
     num *= 10000; 
     unum *= 10000; 
     //compound operator
-    printf("Num = [%d]\n", num);
-    printf("uNum = [%u]\n", unum);
+    printf("Num = [%d], uNum = [%u]\n", num, unum);
     //What is the range of an int?
     //2^32 = 4394000000 = i combinations
     //Range: -(i / 2) to +(i / 2 - 1)
@@ -50,4 +47,4 @@ int main()
 }
 // Function Definitions
 
-
+ 
