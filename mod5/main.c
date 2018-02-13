@@ -29,14 +29,15 @@ int main()
     int arrowHeadWidth = 0;
     int i, j;
 
-    printf("Enter arrow base height: ");
+    printf("Enter arrow base height:\n");
     scanf("%d",&arrowBaseHeight);
 
-    printf("Enter arrow base width: ");
+    printf("Enter arrow base width:\n");
     scanf("%d",&arrowBaseWidth);
 
-    printf("Enter arrow head width: ");
+    printf("Enter arrow head width:\n");
     scanf("%d",&arrowHeadWidth);
+    printf("\n");
 
     for( i = 0; i < arrowBaseHeight; i ++)
     {
