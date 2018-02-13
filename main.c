@@ -43,7 +43,6 @@ int main()
     {
         printf("Enter arrow head width:\n");
         scanf("%d",&arrowHeadWidth);
-        printf("\n");
     }
     
     for( i = 0; i < arrowBaseHeight; i ++)
