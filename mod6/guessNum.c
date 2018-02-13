@@ -21,6 +21,7 @@
 
 // Constants
 const int LEN = 5; // # of opportunities 
+const in NUM = 20; // range of numbers
 // Function Prototypes
 
 // Main Function
@@ -28,7 +29,6 @@ int main()
 {
     // 1) Create a random number between 0-20
     int randNum;
-    int NUM = 20;
     srand((int)time(0));
     randNum = rand()% NUM;
     int opp = 0;
