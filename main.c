@@ -47,7 +47,7 @@ int main()
         }
         printf("\n");
     }
-    for(i = 0; i <= arrowHeadWidth; i ++)
+    for(i = 0; i < arrowHeadWidth; i ++)
     {
         for(j = 0; j <arrowHeadWidth -i; j++)
     {
