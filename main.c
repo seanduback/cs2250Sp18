@@ -38,7 +38,14 @@ int main()
     printf("Enter arrow head width:\n");
     scanf("%d",&arrowHeadWidth);
     printf("\n");
-
+    
+    while(arrowHeadWidth - 1 < arrowBaseWidth)
+    {
+        printf("Enter arrow head width:\n");
+        scanf("%d",&arrowHeadWidth);
+        printf("\n");
+    }
+    
     for( i = 0; i < arrowBaseHeight; i ++)
     {
         for (j = 0; j < arrowBaseWidth; j ++)
