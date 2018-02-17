@@ -84,6 +84,7 @@ int main()
             case 'a':
                 printf("Enter a rating\n");
                 scanf("%d", &ratingVal2);
+                printf("ABOVE %d\n", @ratingVal2);
 
                 for (int i=1; i<=5; i++){
                     if (ratingVal1[i] > ratingVal2)
