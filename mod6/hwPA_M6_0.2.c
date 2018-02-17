@@ -47,7 +47,7 @@ int main()
     {
         printf("Player %d -- Jersey number: %d, Rating: %d\n", i, jearsyNum1[i], ratingVal1[i]);
     }
-    printf("\n");
+    printf("\n\n");
     while (choice != 'q')
     {
         printf("MENU\n");
@@ -56,7 +56,7 @@ int main()
         printf("r - Replace player\n");
         printf("o - Output roster\n");
         printf("q - Quit\n");
-        printf("\n");
+        printf("\n\n");
         printf("Choose an option:\n");
         scanf(" %c",&choice);
         switch (choice) 
