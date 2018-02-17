@@ -30,7 +30,7 @@ int main()
     // int arPlayer[PLAYERS]; Not used
     int arJersey[PLAYERS];
     int arRating[PLAYERS];
-    
+    char userOption = s; 
     //1.1 Fill in values 
     for ( int i = 1; i <= PLAYERS; i ++)
     {
@@ -40,21 +40,42 @@ int main()
         scanf("%d", &arRating[i]);
 
     }
+
+    printf("ROSTER\n");
+
     for (int i = 1; i <= PLAYERS; i ++)
     {
         printf("Player %d -- Jersey number: %d, Rating: %d\n", i, arJersey[i], arRating[i]);
     }
 
     //2.0 Display Menu
-    //MENU
-    //u - Update player rating
-    //a - Output players above a rating
-    //r - Replace player
-    //o - Output roster
-    //q - Quit
-    //
-    //Choose an option:
-    //3.0 Implement the "Output roster" menu option
+    while (userOption != 'q')
+    {
+        printf("MENU\nu - Update player rating\na - Output players above a rating\nr - Replace player\no - Output roster\nq - Quit\n");
+        //Choose an option:
+        scanf(" %c", &userOption);
+        //3.0 Implement the "Output roster" menu option
+        if ( userOption == 'o' )
+        {
+            printf("ROSTER\n");
+            for (int i = 1; i <= PLAYERS; i ++)
+            {
+            printf("Player %d -- Jersey number: %d, Rating: %d\n", i, arJersey[i], arRating[i]);
+            }
+        }
+        if ( userOption == 'u' )
+        {
+            for ( int i = 1; i <= PLAYERS; i ++)
+            {
+                printf("Enter player %d's jersey number:\n", i);
+                scanf("%d", &arJersey[i]);
+                printf("Enter player %d's rating:\n", i);
+                scanf("%d", &arRating[i]);
+
+            }
+        }
+    }
+
     //4.0 Implement the "Update player rating" menu option. 
     //4.1 Prompt the user for a player's jersey number. 
     //4.2 Prompt again for a new rating for the player, and then change that player's rating.
