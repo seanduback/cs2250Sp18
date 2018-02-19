@@ -17,25 +17,25 @@
  */
 #include <stdio.h>
 
-// Constants
-
-// Function Prototypes
+//Constants
+const int NUM_PLAYERS = 5;
 
 // Main Function
 int main()
 {
-    int jearsyNum1[5];
+    int jerseyNum1[5];
     int ratingVal1[5];
     char choice;
-    int jearsyNum2;
+    int jerseyNum2;
     int ratingVal2;
-    int jearsyNum3;
+    int jerseyNum3;
     int switchCounter;
+    int i;
 
-    for (int i = 1; i<=5; i++)
+    for (i = 1; i <= NUM_PLAYERS; i++)
     {
         printf("Enter player %d's jersey number:\n", i);
-        scanf("%d",&jearsyNum1[i]);
+        scanf("%d",&jerseyNum1[i]);
         printf("Enter player %d's rating:\n", i);
         scanf("%d",&ratingVal1[i]);
         printf("\n");
@@ -43,9 +43,9 @@ int main()
 
     printf("ROSTER\n");
 
-    for (int i = 1; i<=5; i++)
+    for (i = 1; i <= NUM_PLAYERS; i++)
     {
-        printf("Player %d -- Jersey number: %d, Rating: %d\n", i, jearsyNum1[i], ratingVal1[i]);
+        printf("Player %d -- Jersey number: %d, Rating: %d\n", i, jerseyNum1[i], ratingVal1[i]);
     }
     printf("\n");
     while (choice != 'q')
@@ -64,13 +64,13 @@ int main()
         {
             case 'u':
                 printf("Enter a jersey number\n");
-                scanf("%d", &jearsyNum2);
+                scanf("%d", &jerseyNum2);
                 printf("Enter a new rating for player\n");
                 scanf(" %d", &ratingVal2);
                 switchCounter = 0;
-                for (int i=0; i<5; i++)
+                for (i = 0; i < NUM_PLAYERS; i++)
                 {
-                    if (jearsyNum1[i] == jearsyNum2)
+                    if (jerseyNum1[i] == jerseyNum2)
                     {
                         ratingVal1[i] = ratingVal2;
                         switchCounter = 1;
@@ -88,45 +88,45 @@ int main()
                 scanf("%d", &ratingVal2);
                 printf("ABOVE %d\n", ratingVal2);
 
-                for (int i=1; i<=5; i++)
+                for (i = 1; i <= NUM_PLAYERS; i++)
                 {
                     if (ratingVal1[i] > ratingVal2)
                     {
-                        printf("Player %d -- Jersey number: %d, Rating: %d\n", i,  jearsyNum1[i],  ratingVal1[i]);
+                        printf("Player %d -- Jersey number: %d, Rating: %d\n", i,  jerseyNum1[i],  ratingVal1[i]);
                     }
                 }
                 printf("\n");
                 break;
             case 'r':
                 printf("Enter a jersey number\n");
-                scanf("%d", &jearsyNum2);
+                scanf("%d", &jerseyNum2);
                 printf("Enter a new jersey number\n");
-                scanf("%d", &jearsyNum3);
+                scanf("%d", &jerseyNum3);
                 printf("Enter a rating for the new player\n");
                 scanf("%d", &ratingVal2);
                 switchCounter = 0;
-                for (int i=0; i<5; i++)
+                for (i = 1; i <= NUM_PLAYERS; i++)
                 {
-                    if (jearsyNum1[i] == jearsyNum2)
+                    if (jerseyNum1[i] == jerseyNum2)
                     {
-                        jearsyNum1[i] = jearsyNum3;
+                        jerseyNum1[i] = jerseyNum3;
                         ratingVal1[i] = ratingVal2;
                         switchCounter = 1;
                     }
                 }
-                if (switchCounter == 0)
+                 if (switchCounter == 0)
                 {
-                    printf("Record not found\n");
-                }
+                  printf("Record not found\n");
+                 }
 
                 printf("\n");
                 break;
             case 'o':
                 printf("ROSTER\n");
 
-                for (int i = 1; i<=5; i++)
+                for (i = 1; i <= NUM_PLAYERS; i++)
                 {
-                    printf("Player %d -- Jersey number: %d, Rating: %d\n", i, jearsyNum1[i], ratingVal1[i]);
+                    printf("Player %d -- Jersey number: %d, Rating: %d\n", i, jerseyNum1[i], ratingVal1[i]);
                 }
 
                 printf("\n");
@@ -137,6 +137,6 @@ int main()
 
     return 0;
 }
-// Function Definitions
+
 
 
