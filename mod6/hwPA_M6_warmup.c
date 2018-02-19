@@ -43,7 +43,7 @@ int main()
             max = weight[i];
         }
     }
-    printf("\n\nTotal weight: %lf\n", total);
+    printf("\nTotal weight: %lf\n", total);
     printf("Average weight: %lf\n", total/NUM_PEOPLE);
     printf("Max weight: %lf\n", max);
 
