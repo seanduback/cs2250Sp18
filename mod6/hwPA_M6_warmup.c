@@ -26,23 +26,25 @@ int main()
 {
     double weight[NUM_PEOPLE];
     int i;
-    double total, max;
+    double total = 0;
+    double max =0 ;
     for(i = 0; i < NUM_PEOPLE; ++i)
     {
         printf("Enter weight %d:\n", i + 1);
         scanf("%lf", &weight[i]);
     }
 
-   // max = weight[0];
     printf("You entered:");
     for(i = 0; i < NUM_PEOPLE; ++i)
     {
         printf(" %lf", weight[i]);
         total += weight[i];
-        if(weight[i] > max) {
+        if(weight[i] > max)
+        {
             max = weight[i];
         }
     }
+    printf("\n");
     printf("\nTotal weight: %lf\n", total);
     printf("Average weight: %lf\n", total/NUM_PEOPLE);
     printf("Max weight: %lf\n", max);
