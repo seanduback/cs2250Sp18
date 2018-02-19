@@ -59,6 +59,7 @@ int main()
         printf("\n");
         printf("Choose an option:\n");
         scanf(" %c",&choice);
+
         switch (choice) 
         {
             case 'u':
@@ -80,6 +81,7 @@ int main()
                     printf("Record not found\n");
                 }
 
+                printf("\n");
                 break;
             case 'a':
                 printf("Enter a rating\n");
@@ -117,6 +119,7 @@ int main()
                     printf("Record not found\n");
                 }
 
+                printf("\n");
                 break;
             case 'o':
                 printf("ROSTER\n");
@@ -125,6 +128,8 @@ int main()
                 {
                     printf("Player %d -- Jersey number: %d, Rating: %d\n", i, jearsyNum1[i], ratingVal1[i]);
                 }
+
+                printf("\n");
                 break;
         }
 
