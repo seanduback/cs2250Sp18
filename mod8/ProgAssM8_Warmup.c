@@ -23,6 +23,7 @@
 const int STRSIZE = 128;
 // Function Prototypes
 int GetNumOfCharacters(char userString[]);
+void OutputWithoutWhitespace(char userString[]);
 // Main Function
 int main()
 {
@@ -31,9 +32,11 @@ int main()
     fgets(userString, STRSIZE, stdin);
     printf("You entered: %s\n", userString);
     printf("Number of characters: %d\n", GetNumOfCharacters(userString));
+    OutputWithoutWhitespace(userString);
     return 0;
 }
 // Function Definitions
+// Output the number of alpha characters 
 int GetNumOfCharacters(char userString[])
 {
     int i = 0; 
@@ -47,7 +50,20 @@ int GetNumOfCharacters(char userString[])
     }
     return count;
 }
-
+// Remove white space
+void OutputWithoutWhitespace(char userString[])
+{
+    int i = 0;
+    for ( i = 0; i < strlen(userString); ++i)
+    {
+        if (userString[i] == ' ')
+        {
+            userString[i] = userString[i+1];
+        }
+    }
+    printf("%s\n", userString);
+    return;
+}
 
 
 
