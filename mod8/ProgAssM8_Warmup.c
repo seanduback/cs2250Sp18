@@ -23,21 +23,23 @@
 const int STRSIZE = 128;
 // Function Prototypes
 int GetNumOfCharacters(char userString[]);
-void OutputWithoutWhitespace(char userString[]);
+void OutputWithoutWhitespace(char userString[], char userStringNowhite[]);
 // Main Function
 int main()
 {
     char userString[STRSIZE];
+    char userStringNoWhite[STRSIZE];
 
     //Prompt the user to enter a string and output it
-    printf("Enter a sentence or a phrase:\n");
+    printf("Enter a sentence or phrase:\n\n");
     fgets(userString, STRSIZE, stdin);
     printf("You entered: %s\n", userString);
 
     //Call GetNumOfCharacters()
     printf("Number of characters: %d\n", GetNumOfCharacters(userString));
 
-    OutputWithoutWhitespace(userString);
+    OutputWithoutWhitespace(userString, userStringNoWhite);
+ printf("String with no whitespace: %s\n", userStringNoWhite);
     return 0;
 }
 // Function Definitions
@@ -52,21 +54,27 @@ int GetNumOfCharacters(char userString[])
         {
             count = count + 1 ;
         }
+        if (userString[i] == ' ')
+        {
+            count = count + 1 ;
+        }
+
     }
     return count;
 }
 // Remove white space
-void OutputWithoutWhitespace(char userString[])
+void OutputWithoutWhitespace(char userString[],char userStringNoWhite[])
 {
-    int i = 0;
-    for ( i = 0; i < strlen(userString); ++i)
+    int i,j = 0;
+    for ( i = 0; userString[i] != 0; ++i)
     {
-        if (userString[i] == ' ')
+       if (userString[i] != ' ')
         {
-            userString[i] = userString[i+1];
+            userStringNoWhite[j] = userStringNoWhite[i];
+            j ++;
         }
+       userStringNoWhite[j] = 0; 
     }
-    printf("String with no whitespace: %s", userString);
     return;
 }
 
