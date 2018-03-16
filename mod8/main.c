@@ -33,7 +33,7 @@ int main()
     //Prompt the user to enter a string and output it
     printf("Enter a sentence or phrase:\n\n");
     fgets(userString, STRSIZE, stdin);
-    printf("You entered: %s\n", userString);
+    printf("You entered: %s\n\n", userString);
 
     //Call GetNumOfCharacters()
     printf("Number of characters: %d\n", GetNumOfCharacters(userString));
@@ -50,11 +50,15 @@ int GetNumOfCharacters(char userString[])
     int count = 0;
     for (i = 0; i < strlen(userString); i ++)
     {
-        if ( isalpha(userString[i] ))
+        if ( isalnum(userString[i] ))
         {
             count = count + 1 ;
         }
         if (userString[i] == ' ')
+        {
+            count = count + 1 ;
+        }
+        if ( ispunct(userString[i] ))
         {
             count = count + 1 ;
         }
@@ -70,7 +74,7 @@ void OutputWithoutWhitespace(char userString[],char userStringNoWhite[])
     {
        if (userString[i] != ' ')
         {
-            userStringNoWhite[j] = userStringNoWhite[i];
+            userStringNoWhite[j] = userString[i];
             j ++;
         }
        userStringNoWhite[j] = 0; 
