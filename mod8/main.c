@@ -173,15 +173,7 @@ void ReplaceExclamation(char userString[])
     printf("\nEdited text: %s\n", userString);
     return;
 }
-// Shorten spaces
-//void ShortenSpace(char userString[])
-//{
-//    char userString1[] = userString[];
-//    char userString2[] = userString[] + 1;
-//    if (userString == '\0');
-//   {
-//      return userSting;
-// }
+// Shorten Spaces in string
 void ShortenSpace(char userString[])
 {
     int i, j, check = 1;
