@@ -36,8 +36,8 @@ int main()
     printf("Enter a sample text:\n");
     fgets(userString, STRSIZE, stdin);
     printf("\nYou entered: %s\n", userString);
-    return 0;
     PrintMenu(userString);
+    return 0;
 }
 // Function Definitions
 
