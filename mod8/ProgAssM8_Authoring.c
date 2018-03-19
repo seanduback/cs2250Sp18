@@ -23,7 +23,10 @@
 const int STRSIZE = 500;
 // Function Prototypes
 int GetNumOfNonWSCharacters(char userString[]);
-void PrintMenu(char userChoice);
+void PrintMenu(char userString[]);
+int GetNumOfWords(char userString[]);
+void FixCapitalization(char userString[]);
+void ReplaceExclamation(char userString[]);
 // Main Function
 int main()
 {
@@ -33,6 +36,7 @@ int main()
     fgets(userString, STRSIZE, stdin);
     printf("\nYou entered: %s\n", userString);
     return 0;
+    PrintMenu(userString);
 }
 // Function Definitions
 
@@ -43,25 +47,129 @@ int GetNumOfNonWSCharacters(char userString[])
     int count = 0;
     for (i = 0; i < strlen(userString); i ++)
     {
-        if ( isalnum(userString[i] ))
-        {
-            count = count + 1 ;
-        }
-        if (userString[i] == ' ')
-        {
-            count = count + 1 ;
-        }
-        if ( ispunct(userString[i] ))
-        {
-            count = count + 1 ;
-        }
-
+        if(!isspace(userString[i]))
+            count++;
     }
     return count;
 }
 //User menu
-void PrintMenu(char userChoice)
+void PrintMenu(char userString[])
 {
+    char userChoice;
+    while(1)
+    {
+        printf("MENU\n");
+
+        printf("c - Number of non-whitespace characters\n");
+
+        printf("w - Number of words\n");
+
+        printf("f - Fix Capitalization\n");
+
+        printf("r - Replace all !'s\n");
+
+        printf("s - Shorten spaces\n");
+
+        printf("q - Quit\n");
+
+        printf("Choose an option: ");
+
+        scanf("%c", &userChoice);
+
+        if (userChoice == 'c'){
+
+            printf("Number of non-white space chars are: %d\n", GetNumOfNonWSCharacters(userString));
+
+        }
+
+        else if(userChoice == 'w'){
+
+            printf("Number of words: %d\n", GetNumOfWords(userString));
+
+        }
+
+        else if(userChoice == 'f'){
+
+        FixCapitalization(userString);
+
+        }
+
+        else if(userChoice == 'r'){
+
+        ReplaceExclamation(userString);
+
+        }
+
+        else if(userChoice == 's'){
+
+            Prints("%s\n", ShortenSpace(userString));
+
+        }
+
+        else if(userChoice == 'q'){
+
+            break;
+
+        }
+
+        else
+
+            printf("Invalid Choice!\n");
+
+        printf("\n");
+
+
+    }
+
     return;
+}
+//Get number of words 
+int GetNumOfWords(char userString[])
+{
+
+    int i, j = 0; 
+    for (i = 0; i < strlen(userString); i ++)
+    {
+        if(userString[i] == ' ');
+        j++;
+    }
+    return (j + 1);
+}
+//Capitalize words of the sting
+void FixCapitalization(char userString[])
+{
+    char dot = '.';
+    int check = 0;
+    int i = 0;
+    if (isalpha(userString[i]))
+        userString[i] = toupper(userString[i]);
+    for (i = 0; i < strlen(userString); i++)
+    {
+        if (userString[i] == dot)
+        {
+            check = 1;
+        }
+        if (isalpha(userString[i] && check))
+        {
+            userString[i] = toupper(userString[i]);
+            check = 0;
+        }
+    }
+    printf("\nEdited test: %s\n", userString);
+    return;
+}
+//Replace exclamation mark
+void ReplaceExclamation(char userString[])
+{
+int i;
+for(i = 0; i < strlen(userString); i ++)
+{
+    if (userString[i] == '!');
+    {
+        userString[i] = '.';
+    }
+}
+printf("\nEdited text: %s\n", userString);
+return;
 }
 
