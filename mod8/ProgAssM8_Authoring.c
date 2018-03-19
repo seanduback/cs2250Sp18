@@ -27,6 +27,7 @@ void PrintMenu(char userString[]);
 int GetNumOfWords(char userString[]);
 void FixCapitalization(char userString[]);
 void ReplaceExclamation(char userString[]);
+void ShortenSpace(char userString[]);
 // Main Function
 int main()
 {
@@ -90,19 +91,19 @@ void PrintMenu(char userString[])
 
         else if(userChoice == 'f'){
 
-        FixCapitalization(userString);
+            FixCapitalization(userString);
 
         }
 
         else if(userChoice == 'r'){
 
-        ReplaceExclamation(userString);
+            ReplaceExclamation(userString);
 
         }
 
         else if(userChoice == 's'){
 
-            Prints("%s\n", ShortenSpace(userString));
+            ShortenSpace(userString);
 
         }
 
@@ -161,15 +162,42 @@ void FixCapitalization(char userString[])
 //Replace exclamation mark
 void ReplaceExclamation(char userString[])
 {
-int i;
-for(i = 0; i < strlen(userString); i ++)
-{
-    if (userString[i] == '!');
+    int i;
+    for(i = 0; i < strlen(userString); i ++)
     {
-        userString[i] = '.';
+        if (userString[i] == '!');
+        {
+            userString[i] = '.';
+        }
     }
+    printf("\nEdited text: %s\n", userString);
+    return;
 }
-printf("\nEdited text: %s\n", userString);
-return;
-}
+// Shorten spaces
+//void ShortenSpace(char userString[])
+//{
+//    char userString1[] = userString[];
+//    char userString2[] = userString[] + 1;
+//    if (userString == '\0');
+//   {
+//      return userSting;
+// }
+void ShortenSpace(char userString[])
+{
+    int i, j, check = 1;
+    for (i = 0; userString[i] != '\0'; i++)
+        if (userString[i] == ' ')
+            if (check)
+                for(j = i--; userString[j]!= '\0'; j++)
+                    userString[j] = userString[j+1];
+            else
+                check = 1;
+        else
+            check = 0;
+    printf("\nEdited text: %s\n", userString);
+    return;
+}  
+
+
+
 
