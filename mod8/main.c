@@ -65,7 +65,7 @@ void PrintMenu(char userString[])
 
         printf("w - Number of words\n");
 
-        printf("f - Fix Capitalization\n");
+        printf("f - Fix capitalization\n");
 
         printf("r - Replace all !'s\n");
 
@@ -73,7 +73,7 @@ void PrintMenu(char userString[])
 
         printf("q - Quit\n");
 
-        printf("Choose an option: ");
+        printf("\nChoose an option:\n");
 
         scanf("%c", &userChoice);
 
