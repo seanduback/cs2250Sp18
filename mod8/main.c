@@ -18,6 +18,7 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
+#include <stdlib.h>
 
 // Constants
 const int STRSIZE = 500;
@@ -57,7 +58,7 @@ int GetNumOfNonWSCharacters(char userString[])
 char PrintMenu(char userString[])
 {
     char userChoice = 'l';
-    while(userChoice != 'q')
+    while(1)
     {
         printf("MENU\n");
         printf("c - Number of non-whitespace characters\n");
@@ -67,7 +68,8 @@ char PrintMenu(char userString[])
         printf("s - Shorten spaces\n");
         printf("q - Quit\n");
         printf("\nChoose an option:\n");
-        scanf("%c", &userChoice);
+        scanf(" %c", &userChoice);
+
         switch(userChoice)
         {
             case 'c':
@@ -94,6 +96,11 @@ char PrintMenu(char userString[])
                 {
                     ShortenSpace(userString);
                     break;
+                }
+                break;
+            case 'q':
+                {
+                   exit(1);
                 }
         }
     }
