@@ -144,7 +144,7 @@ void FixCapitalization(char userString[])
             check = 0;
         }
     }
-    printf("\nEdited test: %s\n\n", userString);
+    printf("\nEdited text: %s\n\n", userString);
     return;
 }
 //Replace exclamation mark
