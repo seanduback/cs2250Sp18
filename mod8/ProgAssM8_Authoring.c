@@ -74,12 +74,12 @@ char PrintMenu(char userString[])
         {
             case 'c':
                 {
-                    printf("Number of non-white space chars are: %d\n\n", GetNumOfNonWSCharacters(userString));
+                    printf("Number of non-white space chars are: %d\n", GetNumOfNonWSCharacters(userString));
                     break;
                 }
             case 'w':
                 {
-                    printf("Number of words: %d\n\n", GetNumOfWords(userString));
+                    printf("Number of words: %d\n", GetNumOfWords(userString));
                     break;
                 }
             case 'f':
@@ -151,7 +151,7 @@ void FixCapitalization(char userString[])
             check = 0;
         }
     }
-    printf("\nEdited text: %s\n\n", userString);
+    printf("\nEdited text: %s\n", userString);
     return;
 }
 //Replace exclamation mark
@@ -165,7 +165,7 @@ void ReplaceExclamation(char userString[])
             userString[i] = '.';
         }
     }
-    printf("\nEdited text: %s\n\n", userString);
+    printf("\nEdited text: %s\n", userString);
     return;
 }
 // Shorten Spaces in string
@@ -187,6 +187,6 @@ void ShortenSpace(char userString[])
     }
     * (b + 1) = '\0';
 
-    printf("\nEdited text: %s\n\n", userString);
+    printf("\nEdited text: %s\n", userString);
     return;
 }
