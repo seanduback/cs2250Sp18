@@ -23,7 +23,7 @@
 const int STRSIZE = 500;
 // Function Prototypes
 int GetNumOfNonWSCharacters(char userString[]);
-void PrintMenu(char userString[]);
+char PrintMenu(char userString[]);
 int GetNumOfWords(char userString[]);
 void FixCapitalization(char userString[]);
 void ReplaceExclamation(char userString[]);
@@ -54,7 +54,7 @@ int GetNumOfNonWSCharacters(char userString[])
     return count;
 }
 //User menu
-void PrintMenu(char userString[])
+char PrintMenu(char userString[])
 {
     char userChoice = 'l';
     while(userChoice != 'q')
@@ -96,10 +96,9 @@ void PrintMenu(char userString[])
                     break;
                 }
         }
-        return;
     }
+    return userChoice;
 }
-
 //Get number of words 
 int GetNumOfWords(char userString[])  
 {
@@ -115,9 +114,12 @@ int GetNumOfWords(char userString[])
             }
         }
         else
+        {
             check = 1;
-        return count;
+        }
     }
+    return count - 1;
+
 }
 //Capitalize words of the sting
 void FixCapitalization(char userString[])
