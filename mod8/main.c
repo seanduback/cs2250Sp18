@@ -77,51 +77,35 @@ void PrintMenu(char userString[])
 
         scanf("%c", &userChoice);
 
-        if (userChoice == 'c'){
-
+        if (userChoice == 'c')
+        {
             printf("Number of non-white space chars are: %d\n", GetNumOfNonWSCharacters(userString));
-
         }
-
-        else if(userChoice == 'w'){
-
+        else if(userChoice == 'w')
+        {
             printf("Number of words: %d\n", GetNumOfWords(userString));
-
         }
-
-        else if(userChoice == 'f'){
-
+        else if(userChoice == 'f')
+        {
             FixCapitalization(userString);
-
         }
-
-        else if(userChoice == 'r'){
-
+        else if(userChoice == 'r')
+        {
             ReplaceExclamation(userString);
-
         }
-
-        else if(userChoice == 's'){
-
+        else if(userChoice == 's')
+        {
             ShortenSpace(userString);
-
         }
-
-        else if(userChoice == 'q'){
-
-            break;
-
-        }
-
+        //   else if(userChoice == 'q')
+        //  {
+        //      break;
+        // }
         else
-
-            printf("Invalid Choice!\n");
-
-        printf("\n");
-
-
+            //  printf("Invalid Choice!\n");
+            //  printf("\n");
+            break;
     }
-
     return;
 }
 //Get number of words 
@@ -131,7 +115,7 @@ int GetNumOfWords(char userString[])
     int i, j = 0; 
     for (i = 0; i < strlen(userString); i ++)
     {
-        if(userString[i] == ' ');
+        if(userString[i] == '.');
         j++;
     }
     return (j + 1);
@@ -142,15 +126,13 @@ void FixCapitalization(char userString[])
     char dot = '.';
     int check = 0;
     int i = 0;
-    if (isalpha(userString[i]))
-        userString[i] = toupper(userString[i]);
     for (i = 0; i < strlen(userString); i++)
     {
         if (userString[i] == dot)
         {
             check = 1;
         }
-        if (isalpha(userString[i] && check))
+        if (isalpha(userString[i]) && check)
         {
             userString[i] = toupper(userString[i]);
             check = 0;
