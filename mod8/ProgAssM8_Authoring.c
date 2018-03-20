@@ -122,6 +122,11 @@ void FixCapitalization(char userString[])
     char dot = '.';
     int check = 0;
     int i = 0;
+    if (isalpha(userString[0]))
+    {
+        userString[0] = toupper(userString[0]);
+    }
+
     for (i = 0; i < strlen(userString); i++)
     {
         if (userString[i] == dot)
@@ -143,7 +148,7 @@ void ReplaceExclamation(char userString[])
     int i;
     for(i = 0; i < strlen(userString); i ++)
     {
-        if (userString[i] == '!');
+        if (userString[i] == '!')
         {
             userString[i] = '.';
         }
