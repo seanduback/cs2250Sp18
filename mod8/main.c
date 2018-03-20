@@ -95,26 +95,29 @@ void PrintMenu(char userString[])
                     ShortenSpace(userString);
                     break;
                 }
-                // else
-                //  printf("Invalid Choice!\n");
-                //  printf("\n");
-                break;
         }
         return;
     }
 }
 
 //Get number of words 
-int GetNumOfWords(char userString[])
+int GetNumOfWords(char userString[])  
 {
-
-    int i, j = 0; 
-    for (i = 0; i < strlen(userString); i ++)
+    int i, count = 1, check = 1;
+    for (i = 0; userString[i] != '\0'; i++)
     {
-        if(userString[i] == '.');
-        j++;
+        if (userString[i] == ' ' || userString[i] == '\t' || userString[i] == '.' || userString[i] == '?' || userString[i] == '!' || userString[i] == ',')
+        {
+            if(check) 
+            {
+                count ++;
+                check = 0;
+            }
+        }
+        else
+            check = 1;
+        return count;
     }
-    return (j + 1);
 }
 //Capitalize words of the sting
 void FixCapitalization(char userString[])
