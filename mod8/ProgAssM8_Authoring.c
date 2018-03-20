@@ -74,12 +74,12 @@ char PrintMenu(char userString[])
         {
             case 'c':
                 {
-                    printf("Number of non-white space chars are: %d\n", GetNumOfNonWSCharacters(userString));
+                    printf("Number of non-white space chars are: %d\n\n", GetNumOfNonWSCharacters(userString));
                     break;
                 }
             case 'w':
                 {
-                    printf("Number of words: %d\n", GetNumOfWords(userString));
+                    printf("Number of words: %d\n\n", GetNumOfWords(userString));
                     break;
                 }
             case 'f':
