@@ -56,58 +56,54 @@ int GetNumOfNonWSCharacters(char userString[])
 //User menu
 void PrintMenu(char userString[])
 {
-    char userChoice;
-    while(1)
+    char userChoice = 'l';
+    while(userChoice != 'q')
     {
         printf("MENU\n");
-
         printf("c - Number of non-whitespace characters\n");
-
         printf("w - Number of words\n");
-
         printf("f - Fix capitalization\n");
-
         printf("r - Replace all !'s\n");
-
         printf("s - Shorten spaces\n");
-
         printf("q - Quit\n");
-
         printf("\nChoose an option:\n");
-
         scanf("%c", &userChoice);
-
-        if (userChoice == 'c')
+        switch(userChoice)
         {
-            printf("Number of non-white space chars are: %d\n", GetNumOfNonWSCharacters(userString));
+            case 'c':
+                {
+                    printf("Number of non-white space chars are: %d\n", GetNumOfNonWSCharacters(userString));
+                    break;
+                }
+            case 'w':
+                {
+                    printf("Number of words: %d\n", GetNumOfWords(userString));
+                    break;
+                }
+            case 'f':
+                {
+                    FixCapitalization(userString);
+                    break;
+                }
+            case 'r':
+                {
+                    ReplaceExclamation(userString);
+                    break;
+                }
+            case 's':
+                {
+                    ShortenSpace(userString);
+                    break;
+                }
+                // else
+                //  printf("Invalid Choice!\n");
+                //  printf("\n");
+                break;
         }
-        else if(userChoice == 'w')
-        {
-            printf("Number of words: %d\n", GetNumOfWords(userString));
-        }
-        else if(userChoice == 'f')
-        {
-            FixCapitalization(userString);
-        }
-        else if(userChoice == 'r')
-        {
-            ReplaceExclamation(userString);
-        }
-        else if(userChoice == 's')
-        {
-            ShortenSpace(userString);
-        }
-        //   else if(userChoice == 'q')
-        //  {
-        //      break;
-        // }
-        else
-            //  printf("Invalid Choice!\n");
-            //  printf("\n");
-            break;
+        return;
     }
-    return;
 }
+
 //Get number of words 
 int GetNumOfWords(char userString[])
 {
@@ -158,20 +154,22 @@ void ReplaceExclamation(char userString[])
 // Shorten Spaces in string
 void ShortenSpace(char userString[])
 {
-    int i, j, check = 1;
-    for (i = 0; userString[i] != '\0'; i++)
-        if (userString[i] == ' ')
-            if (check)
-                for(j = i--; userString[j]!= '\0'; j++)
-                    userString[j] = userString[j+1];
-            else
-                check = 1;
-        else
-            check = 0;
+    if( *userString == '\0')
+    {
+        return;
+    }
+    char *b = userString;
+    char *f = userString + 1;
+    while (*f != '\0')
+    {
+        if (*f != ' ' || *b != ' ')
+        {
+            *(++b) = *f;
+        }
+        f++;
+    }
+    * (b + 1) = '\0';
+
     printf("\nEdited text: %s\n", userString);
     return;
-}  
-
-
-
-
+}
