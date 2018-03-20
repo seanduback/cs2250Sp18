@@ -74,7 +74,7 @@ char PrintMenu(char userString[])
         {
             case 'c':
                 {
-                    printf("Number of non-white space characters are: %d\n\n", GetNumOfNonWSCharacters(userString));
+                    printf("Number of non-whitespace characters: %d\n\n", GetNumOfNonWSCharacters(userString));
                     break;
                 }
             case 'w':
