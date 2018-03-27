@@ -17,18 +17,14 @@
  */
 #include <stdio.h>
 #include <string.h>
-#include <stdlib.h>
-// Constants
-static int len=2;
-typedef struct ItemToPurchase
-{
-    char itemName[128];
+#ifndef ITEM_TO_PURCHASE_H
+#define ITEM_TO_PURCHASE_H
+typedef struct ItemToPurchase_struct{
+    char itemName[50];
     int itemPrice;
-    int itemQuantity;  
-}
-ItemPurchase;
+    int itemQuantity;
+} ItemToPurchase;
 
-// Function Prototypes
-void MakeItemBlank(ItemPurchase*);
-void PrintItemCost(ItemPurchase*);
-// Function Definitions
+void MakeItemBlank(ItemToPurchase *item);
+void PrintItemCost(ItemToPurchase item);
+#endif

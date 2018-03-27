@@ -17,26 +17,38 @@
  */
 #include "ItemToPurchase.h"
 
-// Main Fun=ction
-int main(){
+// Main Function
+int main(void) {
     int i;
-    char name[128];
-    ItemPurchase item[2];
+    int total;
+    ItemToPurchase item1;
+    ItemToPurchase item2;
 
-    /*prompt for user inputs*/
-    for(i=0;i<len;i++) {
+    printf("Item 1\n");
+    printf("Enter the item name: \n");
+    fflush(stdin);
+    fgets((item1.itemName), 50, stdin);
+    printf("Enter the item price:\n");
+    scanf("%d", &(item1.itemPrice));
+    printf("Enter the item quantity:\n");
+    scanf("%d", &(item1.itemQuantity));
 
-        printf("Item %d\n",(i+1));
-        printf("Enter the item name:");
-        scanf(" %[^\n]s", name);
-        strcpy(item[i].itemName,name);
-        printf("Enter the item price:");
-        scanf("%d",&item[i].itemPrice);
-        printf("Enter the item quantity:");
-        scanf("%d",&item[i].itemQuantity);
-    }
+    printf("item 2\n");
+    printf("Enter the item name:\n");
+    fflush(stdin);
+    fgets((item2.itemName), 50, stdin);
+    printf("Enter the item price:\n");
+    scanf("%d", &(item2.itemPrice));
+    printf("Enter the item quantity:\n");
+    scanf("%d", &(item2.itemQuantity));
 
-    PrintItemCost(item);
+
+    total = (item1.itemPrice * item1.itemQuantity)+
+        (item2.itemPrice * item2.itemQuantity);
+    printf("TOTAL COST\n");
+    printItemCost(item1);
+    printItemCost(item2);
+    printf("Total: $%d\n", total);
 
     return 0;
 }
