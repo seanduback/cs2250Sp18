@@ -21,7 +21,7 @@
 // Main Function
 int main()
 {
-    int i;
+    // int i;
     int total;
     ItemToPurchase item1;
     ItemToPurchase item2;
@@ -34,8 +34,7 @@ int main()
     scanf("%d", &(item1.itemPrice));
     printf("Enter the item quantity:\n");
     scanf("%d", &(item1.itemQuantity));
-
-    printf("item 2\n");
+    printf("\nItem 2\n");
     printf("Enter the item name:\n");
     fflush(stdin);
     fgets((item2.itemName), 50, stdin);
@@ -43,10 +42,8 @@ int main()
     scanf("%d", &(item2.itemPrice));
     printf("Enter the item quantity:\n");
     scanf("%d", &(item2.itemQuantity));
-
-
     total = (item1.itemPrice * item1.itemQuantity)+ (item2.itemPrice * item2.itemQuantity);
-    printf("TOTAL COST\n");
+    printf("\nTOTAL COST\n");
     PrintItemCost(item1);
     PrintItemCost(item2);
     printf("Total: $%d\n", total);
