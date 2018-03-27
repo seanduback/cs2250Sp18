@@ -16,9 +16,11 @@
  * =====================================================================================
  */
 #include "ItemToPurchase.h"
-
+#include <stdio.h>
+#include <string.h>
 // Main Function
-int main(void) {
+int main()
+{
     int i;
     int total;
     ItemToPurchase item1;
@@ -43,11 +45,10 @@ int main(void) {
     scanf("%d", &(item2.itemQuantity));
 
 
-    total = (item1.itemPrice * item1.itemQuantity)+
-        (item2.itemPrice * item2.itemQuantity);
+    total = (item1.itemPrice * item1.itemQuantity)+ (item2.itemPrice * item2.itemQuantity);
     printf("TOTAL COST\n");
-    printItemCost(item1);
-    printItemCost(item2);
+    PrintItemCost(item1);
+    PrintItemCost(item2);
     printf("Total: $%d\n", total);
 
     return 0;

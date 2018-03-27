@@ -15,8 +15,6 @@
  *
  * =====================================================================================
  */
-#include <stdio.h>
-#include <string.h>
 #ifndef ITEM_TO_PURCHASE_H
 #define ITEM_TO_PURCHASE_H
 typedef struct ItemToPurchase_struct{

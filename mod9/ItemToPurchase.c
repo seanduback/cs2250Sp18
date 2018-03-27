@@ -16,15 +16,19 @@
  * =====================================================================================
  */
 #include "ItemToPurchase.h"
+#include <stdio.h>
+#include <string.h>
 // Function Definitions
-void makeItemBlank(ItemToPurchase *item){
+void makeItemBlank(ItemToPurchase *item)
+{
     strcpy((item)->itemName, "None");
     (item)->itemPrice=0;
     (item)->itemQuantity=0;
+    return;
 }
 
-void printItemCost(ItemToPurchase item){
-    printf("%s %d @ $%d = $%d\n", item.itemName,
-            item.itemQuantity,item.itemPrice,
-            ((item.itemPrice) * (item.itemQuantity)));
+void PrintItemCost(ItemToPurchase item)
+{
+    printf("%s %d @ $%d = $%d\n", item.itemName,item.itemQuantity,item.itemPrice,((item.itemPrice) * (item.itemQuantity)));
+    return;
 }
