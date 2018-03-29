@@ -27,7 +27,7 @@ int main()
     ItemToPurchase item2;
 
     printf("Item 1\n");
-    printf("Enter the item name: \n");
+    printf("Enter the item name:\n");
     fflush(stdin);
     fgets((item1.itemName), 50, stdin);
     printf("Enter the item price:\n");

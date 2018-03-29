@@ -15,6 +15,8 @@
  *
  * =====================================================================================
  */
+#ifndef ITEMTOPURCHASE__INC_
+#define ITEMTOPURCHASE_INC__
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -28,3 +30,5 @@ typedef struct ItemToPurchase{
 /*functions declarations and object of structure*/
 void MakeItemBlank(ItemPurchase*);
 void PrintItemCost(ItemPurchase*);
+
+#endif /*ifdef ITEMTOPURCHASE__INC__ */
