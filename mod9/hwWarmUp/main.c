@@ -23,7 +23,7 @@ int main()
 {
     int i;
     char name[128];
-    ItemPurchase item[2];
+    ItemToPurchase item[2];
 
     /*prompt for user inputs*/
     for(i = 0; i <len ;i++ ) {

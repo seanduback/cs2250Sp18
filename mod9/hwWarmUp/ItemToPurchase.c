@@ -17,7 +17,7 @@
  */
 #include "ItemToPurchase.h"//including .h file
 // Function Definitions
-void MakeItemBlank(ItemPurchase *item) {
+void MakeItemBlank(ItemToPurchase *item) {
     int i;
     char temp[10]="none";
     for(i=0;i<len;i++) {
@@ -28,7 +28,7 @@ void MakeItemBlank(ItemPurchase *item) {
 
 }
 //PrintItemCost method will calculate cost of all items
-void PrintItemCost(ItemPurchase *item) {
+void PrintItemCost(ItemToPurchase *item) {
     int totalCost=0;
     int cost=0;
     int i=0;  

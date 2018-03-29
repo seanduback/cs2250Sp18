@@ -26,9 +26,9 @@ typedef struct ItemToPurchase{
     char itemName[128];
     int itemPrice;
     int itemQuantity;  
-}ItemPurchase;
+}ItemToPurchase;
 /*functions declarations and object of structure*/
-void MakeItemBlank(ItemPurchase*);
-void PrintItemCost(ItemPurchase*);
+void MakeItemBlank(ItemToPurchase*);
+void PrintItemCost(ItemToPurchase*);
 
 #endif /*ifdef ITEMTOPURCHASE__INC__ */
