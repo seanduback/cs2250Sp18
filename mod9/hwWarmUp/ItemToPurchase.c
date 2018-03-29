@@ -18,14 +18,11 @@
 #include "ItemToPurchase.h"//including .h file
 // Function Definitions
 void MakeItemBlank(ItemToPurchase *item) {
-    int i;
-    char temp[10] = "none";
-    for(i = 0; i < len ; i++) {
-        strcpy(item[i].itemName,temp);
-        item[i].itemPrice=0;
-        item[i].itemQuantity=0;
-    }
-}
+    strcpy((*item).itemName, "none");
+    (*item).itemPrice = 0;
+    (*item).itemQuantity = 0;
+        }
+
 //PrintItemCost method will calculate cost of all items
 void PrintItemCost(ItemToPurchase *item) {
     int totalCost=0;
