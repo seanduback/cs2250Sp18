@@ -25,10 +25,12 @@ static int len=2;
 typedef struct ItemToPurchase{
     char itemName[128];
     int itemPrice;
-    int itemQuantity;  
+    int itemQuantity;
+    char itemDescription[128];
 }ItemToPurchase;
 /*functions declarations and object of structure*/
 void MakeItemBlank(ItemToPurchase*);
 void PrintItemCost(ItemToPurchase*);
+void PrintItemDescription(ItemToPurchase item);
 
 #endif /*ifdef ITEMTOPURCHASE__INC__ */
