@@ -27,18 +27,11 @@ typedef struct ShoppingCart_struct {
 } ShoppingCart;
 
 ShoppingCart AddItem(ItemToPurchase item, ShoppingCart cart);
-
 ShoppingCart RemoveItem(char name[], ShoppingCart cart);
-
 ShoppingCart ModifyItem(ItemToPurchase item, ShoppingCart cart);
-
 int GetNumItemsInCart(ShoppingCart cart);
-
 int GetCostOfCart(ShoppingCart cart);
-
 void PrintTotal(ShoppingCart cart);
-
 void PrintDescriptions(ShoppingCart cart);
-
 #endif /* ----- #ifndef SHOPPINGCART__INC__ ----- */
 

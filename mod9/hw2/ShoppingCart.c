@@ -33,11 +33,11 @@ ShoppingCart RemoveItem(char name[], ShoppingCart cart) {
         ++i;
     }
 
-    for(i; i< cart.cartSize; ++i){
+    for(i = 0; i< cart.cartSize; ++i){
         ItemToPurchase temp = cart.cartItems[i];
         cart.cartItems[i] = temp;
     }
-
+    return cart;
 }
 
 ShoppingCart ModifyItem(ItemToPurchase item, ShoppingCart cart) {
@@ -53,6 +53,7 @@ ShoppingCart ModifyItem(ItemToPurchase item, ShoppingCart cart) {
     }
 
     cart.cartItems[i].itemQuantity = quantity;
+    return cart;
 }
 
 int GetNumItemsInCart(ShoppingCart cart) {

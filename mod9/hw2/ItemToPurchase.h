@@ -28,8 +28,8 @@ typedef struct ItemToPurchase{
     int itemQuantity;  
 }ItemToPurchase;
 /*functions declarations and object of structure*/
-void MakeItemBlank(ItemToPurchase*);
-void PrintItemCost(ItemToPurchase*);
+void MakeItemBlank(ItemToPurchase* item);
+void PrintItemCost(ItemToPurchase item);
 void PrintItemDescription(ItemToPurchase item);
 
 #endif /* ----- #ifndef ITEMTOPURCHASE__INC__ ----- */
