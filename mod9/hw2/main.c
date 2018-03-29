@@ -34,8 +34,8 @@ int main()
     scanf(" %[^\n]s", name);
     strcpy(usrShopping.currentDate,name);
 
-    printf("Customer Name: %s\n", usrShopping.customerName);
-    printf("Today's Date: %s\n", usrShopping.currentDate);
+    printf("\nCustomer Name: %s\n", usrShopping.customerName);
+    printf("Today's Date: %s\n\n", usrShopping.currentDate);
 
     char menuChoice = ' ';
 

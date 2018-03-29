@@ -79,8 +79,8 @@ void PrintTotal(ShoppingCart cart) {
     printf("Number of Items: %d\n\n", cart.cartSize);
 
     if (cart.cartSize == 0) {
-        printf("SHOPPING CART IS EMPTY\n");
-        printf("Total: $0\n");
+        printf("SHOPPING CART IS EMPTY\n\n");
+        printf("Total: $0\n\n");
     } else {
         for (int i = 0; i < cart.cartSize; ++i) {
             temp = (cart.cartItems[i].itemQuantity * cart.cartItems[i].itemPrice);
