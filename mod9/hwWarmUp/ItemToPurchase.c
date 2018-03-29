@@ -19,12 +19,12 @@
 // Function Definitions
 void MakeItemBlank(ItemToPurchase *item) {
     int i;
+    char temp[10] = "None";
     for(i = 0; i < len ; i++) {
-        strcpy(item[i].itemName,"None");
+        strcpy(item[i].itemName,temp);
         item[i].itemPrice=0;
         item[i].itemQuantity=0;
-    }      
-
+    }
 }
 //PrintItemCost method will calculate cost of all items
 void PrintItemCost(ItemToPurchase *item) {
