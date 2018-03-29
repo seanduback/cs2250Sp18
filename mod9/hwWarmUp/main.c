@@ -15,7 +15,6 @@
  *
  * =====================================================================================
  */
-#include <stdio.h>
 #include "ItemToPurchase.h"
 // Function Prototypes
 

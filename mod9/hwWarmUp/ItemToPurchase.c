@@ -15,7 +15,6 @@
  *
  * =====================================================================================
  */
-#include <stdio.h>
 #include "ItemToPurchase.h"//including .h file
 // Function Definitions
 void MakeItemBlank(ItemPurchase *item) {
