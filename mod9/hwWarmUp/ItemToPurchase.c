@@ -19,9 +19,8 @@
 // Function Definitions
 void MakeItemBlank(ItemToPurchase *item) {
     int i;
-    char temp[10]="none";
-    for(i=0;i<len;i++) {
-        strcpy(item[i].itemName,temp);
+    for(i = 0; i < len ; i++) {
+        strcpy(item[i].itemName,"None");
         item[i].itemPrice=0;
         item[i].itemQuantity=0;
     }      
