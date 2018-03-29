@@ -27,32 +27,32 @@ ShoppingCart AddItem(ItemToPurchase item, ShoppingCart cart) {
 }
 
 ShoppingCart RemoveItem(char name[], ShoppingCart cart) {
-  int i = 0;
- 
-  while (strcmp(name, cart.cartItems[i].itemName) != 0) {
-  ++i;
-  }
- 
-  for(i; i< cart.cartSize; ++i){
-  ItemToPurchase temp = cart.cartItems[i];
-  cart.cartItems[i] = temp;
-  }
- 
-  }
+    int i = 0;
+
+    while (strcmp(name, cart.cartItems[i].itemName) != 0) {
+        ++i;
+    }
+
+    for(i; i< cart.cartSize; ++i){
+        ItemToPurchase temp = cart.cartItems[i];
+        cart.cartItems[i] = temp;
+    }
+
+}
 
 ShoppingCart ModifyItem(ItemToPurchase item, ShoppingCart cart) {
     int quantity;
-     
-      printf("Enter the new quantity:");
-      scanf("%d", &quantity);
-     
-      int i = 0;
-     
-      while (strcmp(item.itemName, cart.cartItems[i].itemName) != 0) {
-      ++i;
-      }
-     
-      cart.cartItems[i].itemQuantity = quantity;
+
+    printf("Enter the new quantity:");
+    scanf("%d", &quantity);
+
+    int i = 0;
+
+    while (strcmp(item.itemName, cart.cartItems[i].itemName) != 0) {
+        ++i;
+    }
+
+    cart.cartItems[i].itemQuantity = quantity;
 }
 
 int GetNumItemsInCart(ShoppingCart cart) {
@@ -99,6 +99,6 @@ void PrintDescriptions(ShoppingCart cart) {
     for (int i = 0; i < cart.cartSize; ++i) {
         PrintItemDescription(cart.cartItems[i]);
         printf("%s: %s\n", cart.cartItems[i].itemName, cart.cartItems[i].itemDescription);
-        }
-        }
+    }
+}
 

@@ -15,7 +15,6 @@
  *
  * =====================================================================================
  */
-#include "ItemToPurchase.h"
 #include "ShoppingCart.h"
 
 // Constants
@@ -29,11 +28,11 @@ int main()
     char name [128];
 
     printf("Enter Customer's Name:\n");
-        scanf(" %[^\n]s", name);
-        strcpy(usrShopping.customerName,name);
+    scanf(" %[^\n]s", name);
+    strcpy(usrShopping.customerName,name);
     printf("Enter Today's Date:\n");
-        scanf(" %[^\n]s", name);
-        strcpy(usrShopping.currentDate,name);
+    scanf(" %[^\n]s", name);
+    strcpy(usrShopping.currentDate,name);
 
     printf("Customer Name: %s\n", usrShopping.customerName);
     printf("Today's Date: %s\n", usrShopping.currentDate);
@@ -88,40 +87,42 @@ char PrintMenu(ShoppingCart usrShopping) {
         menuOp = ' ';
 
 
-    } else if (menuOp == 'r') {
+    }
+    else if (menuOp == 'r') {
         printf("REMOVE ITEM FROM CART\n");
 
         char name[50];
-         
-          printf("Enter name of item to remove:");
-          fgets(name, 50, stdin);
-         
-          RemoveItem(name, usrShopping);
+
+        printf("Enter name of item to remove:");
+        fgets(name, 50, stdin);
+
+        RemoveItem(name, usrShopping);
 
         menuOp = ' ';
-    } else if (menuOp == 'c') {
+    } 
+    else if (menuOp == 'c') {
         printf("CHANGE ITEM QUANTITY\n");
         char name[50];
-         
-          printf("Enter the item name:");
-          fgets(name, 50, stdin);
-         
-          int i = 0;
-         
-          while (strcmp(name, usrShopping.cartItems[i].itemName) != 0) {
-          ++i;
-          }
-         
-          ModifyItem(usrShopping.cartItems[i], usrShopping);
 
+        printf("Enter the item name:");
+        fgets(name, 50, stdin);
 
+        int i = 0;
+
+        while (strcmp(name, usrShopping.cartItems[i].itemName) != 0) {
+            ++i;
+        
+        ModifyItem(usrShopping.cartItems[i], usrShopping);
+        }
         menuOp = ' ';
-    } else if (menuOp == 'i') {
+    } 
+    else if (menuOp == 'i') {
         printf("OUTPUT ITEM'S DESCRIPTIONS\n");
         PrintDescriptions(usrShopping);
         menuOp = ' ';
 
-    } else if (menuOp == 'o') {
+    } 
+    else if (menuOp == 'o') {
         printf("OUTPUT SHOPPING CART\n");
         PrintTotal(usrShopping);
         menuOp = ' ';
