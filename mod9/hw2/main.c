@@ -26,11 +26,14 @@ int main()
 {
     ShoppingCart usrShopping;
     usrShopping.cartSize = 0;
+    char name [128];
 
     printf("Enter Customer's Name:\n");
-    gets(usrShopping.customerName);
+        scanf(" %[^\n]s", name);
+        strcpy(usrShopping.customerName,name);
     printf("Enter Today's Date:\n");
-    gets(usrShopping.currentDate);
+        scanf(" %[^\n]s", name);
+        strcpy(usrShopping.currentDate,name);
 
     printf("Customer Name: %s\n", usrShopping.customerName);
     printf("Today's Date: %s\n", usrShopping.currentDate);
@@ -58,18 +61,21 @@ char PrintMenu(ShoppingCart usrShopping) {
     while (menuOp != 'a' && menuOp != 'r' && menuOp != 'c' &&
             menuOp != 'i' && menuOp != 'o' && menuOp != 'q') {
         printf("Choose an option:\n");
-        gets(&menuOp);
+        scanf(" %c", &menuOp);
     }
 
     if (menuOp == 'a') {
         ItemToPurchase item;
+        char name[128];
 
         printf("ADD ITEM TO CART\n");
 
         printf("Enter the item name:\n");
-        gets(item.itemName);
+        scanf(" %[^\n]s", name);
+        strcpy(item.itemName,name);
         printf("Enter the item description:\n");
-        gets(item.itemDescription);
+        scanf(" %[^\n]s", name);
+        strcpy(item.itemDescription,name);
         printf("Enter the item price:\n");
         scanf("%d", &item.itemPrice);
         printf("Enter the item quantity:\n");
@@ -85,28 +91,28 @@ char PrintMenu(ShoppingCart usrShopping) {
     } else if (menuOp == 'r') {
         printf("REMOVE ITEM FROM CART\n");
 
-        /*char name[50];
-         *
-         * printf("Enter name of item to remove:");
-         * fgets(name, 50, stdin);
-         *
-         * RemoveItem(name, usrShopping);*/
+        char name[50];
+         
+          printf("Enter name of item to remove:");
+          fgets(name, 50, stdin);
+         
+          RemoveItem(name, usrShopping);
 
         menuOp = ' ';
     } else if (menuOp == 'c') {
         printf("CHANGE ITEM QUANTITY\n");
-        /*char name[50];
-         *
-         * printf("Enter the item name:");
-         * fgets(name, 50, stdin);
-         *
-         * int i = 0;
-         *
-         * while (strcmp(name, usrShopping.cartItems[i].itemName) != 0) {
-         * ++i;
-         * }
-         *
-         * ModifyItem(usrShopping.cartItems[i], usrShopping);*/
+        char name[50];
+         
+          printf("Enter the item name:");
+          fgets(name, 50, stdin);
+         
+          int i = 0;
+         
+          while (strcmp(name, usrShopping.cartItems[i].itemName) != 0) {
+          ++i;
+          }
+         
+          ModifyItem(usrShopping.cartItems[i], usrShopping);
 
 
         menuOp = ' ';
