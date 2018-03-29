@@ -38,6 +38,7 @@ int main()
         printf("\n");
     }
     PrintItemCost(item);
+
     return 0;
 }
 // Function Definitions
