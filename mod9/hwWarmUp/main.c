@@ -28,12 +28,12 @@ int main()
     /*prompt for user inputs*/
     for(i = 0; i <len ;i++ ) {
         printf("Item %d\n",(i+1));
-        printf("Enter the item name:");
+        printf("Enter the item name:\n");
         scanf(" %[^\n]s", name);
         strcpy(item[i].itemName,name);
-        printf("Enter the item price:");
+        printf("Enter the item price:\n");
         scanf("%d",&item[i].itemPrice);
-        printf("Enter the item quantity:");
+        printf("Enter the item quantity:\n");
         scanf("%d",&item[i].itemQuantity);
         printf("\n");
     }

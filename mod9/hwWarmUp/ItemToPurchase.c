@@ -35,12 +35,12 @@ void PrintItemCost(ItemToPurchase *item) {
     printf("TOTAL COST\n");
     for(i = 0; i < len; i++) {          
         cost=item[i].itemPrice*item[i].itemQuantity;
-        printf("%s %d @ $%d=$%d\n",item[i].itemName, item[i].itemQuantity, item[i].itemPrice, cost);
+        printf("%s %d @ $%d = $%d\n",item[i].itemName, item[i].itemQuantity, item[i].itemPrice, cost);
         totalCost+=cost;
         cost=0;  
 
     }
-    printf("\nTotal:$%d\n",totalCost);
+    printf("\nTotal: $%d\n",totalCost);
 
 }
 
