@@ -89,16 +89,22 @@ void PrintMenu(char playlistTitle[])
                 printf("Enter song's length (in seconds):\n");
                 scanf("%d", &songLength);
                 printf("\n");
-
+           
                 // Create a new node for playlist
-                // .....
-
-
                 // If song is first in playlist, update head/tail
+                if (headNode == NULL) {
+                    headNode = (PlaylistNode*)malloc(sizeof(PlaylistNode));
+                    CreatePlaylistNode(headNode, uniqueID, songName, artistName, songLength, NULL);
+                    tailNode = headNode;
+                }
                 // Otherwise insert to end of playlist and update tail
-                // .....
+                else {
+                    currNode = (PlaylistNode*)malloc(sizeof(PlaylistNode));
+                    CreatePlaylistNode(currNode,  uniqueID, songName, artistName, songLength, NULL);
+                    InsertPlaylistNodeAfter(tailNode, currNode);
+                    tailNode = currNode;
+                }
                 break;
-
 
             case 'r':
                 // Output playlist messaging

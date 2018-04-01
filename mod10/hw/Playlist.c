@@ -8,16 +8,27 @@ void CreatePlaylistNode(PlaylistNode* thisNode, char idInit[],
         char songNameInit[], char artistNameInit[],
         int songLengthInit, PlaylistNode* nextLoc) 
 {
+   // thisNode = (PlaylistNode*)malloc(sizeof(PlaylistNode));
+    strcpy(thisNode->uniqueID, idInit);
+    strcpy(thisNode->songName, songNameInit);
+    strcpy(thisNode->artistName, artistNameInit);
+    thisNode->songLength = songLengthInit;
+    thisNode->nextNodePtr = nextLoc;
     return;
 }
 
 void InsertPlaylistNodeAfter(PlaylistNode* thisNode, PlaylistNode* newNode) 
 {
+    PlaylistNode* tmpNext = NULL;
+    tmpNext = thisNode->nextNodePtr;
+    thisNode->nextNodePtr = newNode;
+    newNode->nextNodePtr = tmpNext;
     return;
 }
 
 void SetNextPlaylistNode(PlaylistNode* thisNode, PlaylistNode* newNode) 
 {
+    thisNode->nextNodePtr = newNode;
     return;
 }
 
