@@ -28,7 +28,7 @@ void CreateContactNode(ContactNode* thisNode, char name[], char phoneNum[], Cont
     return;
 }
 //inserts a new node after node
-void InsertContactAfter(ContactNode* thisNode, ContactNode* newNode){
+void InsertContactAfter(ContactNode* newNode, ContactNode* thisNode){
     ContactNode* tmpNext = NULL;
     tmpNext = thisNode->nextNodePtr;
     newNode->nextNodePtr = tmpNext;
