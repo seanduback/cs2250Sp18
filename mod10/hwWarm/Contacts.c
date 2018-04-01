@@ -20,26 +20,25 @@
 // Constants
 // Function Definitions
 
-//CreateContactNode() creates new node
+// creates new node
 void CreateContactNode(ContactNode* thisNode, char name[], char phoneNum[], ContactNode* nextLoc){
     strcpy(thisNode->contactName, name);
     strcpy(thisNode->contactPhoneNum, phoneNum);
     thisNode->nextNodePtr = nextLoc;
     return;
 }
-////InsertContactAfter() inserts a new node after node
+//inserts a new node after node
 void InsertContactAfter(ContactNode* thisNode, ContactNode* newNode){
     ContactNode* tmpNext = NULL;
     tmpNext = thisNode->nextNodePtr;
     newNode->nextNodePtr = tmpNext;
     return;
 }
-////GetNextContact() Return location pointed by nextNodePtr
+//Return location pointed by nextNodePtr
 ContactNode* GetNextContact(ContactNode* thisNode){
     return thisNode->nextNodePtr;
 }
-//
-////PrintContactNode() print nodes
+//print nodes
 void PrintContactNode(ContactNode* thisNode){
     printf("Name: %s\n",thisNode->contactName );
     printf("Phone number: %s\n",thisNode->contactPhoneNum );
