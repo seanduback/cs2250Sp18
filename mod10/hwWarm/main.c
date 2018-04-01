@@ -40,7 +40,7 @@ int main()
         CreateContactNode( headObj, name, phNum, nodeObj1);
         printf("You entered: %s, %s\n\n", headObj->contactName, headObj->contactPhoneNum);
 
-        printf("Person 2");
+        printf("Person 2\n");
         printf("Enter name:\n");
         scanf(" %[^\n]s", name);
         printf("Enter phone number:\n");
@@ -48,7 +48,7 @@ int main()
         CreateContactNode( nodeObj1, name, phNum, nodeObj2);
         printf("You entered: %s, %s\n\n", nodeObj1->contactName, nodeObj1->contactPhoneNum);
        
-        printf("Person 2");
+        printf("Person 3\n");
         printf("Enter name:\n");
         scanf(" %[^\n]s", name);
         printf("Enter phone number:\n");
