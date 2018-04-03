@@ -89,7 +89,7 @@ void PrintMenu(char playlistTitle[])
                 printf("Enter song's length (in seconds):\n");
                 scanf("%d", &songLength);
                 printf("\n");
-           
+
                 // Create a new node for playlist
                 // If song is first in playlist, update head/tail
                 if (headNode == NULL) {
@@ -114,181 +114,211 @@ void PrintMenu(char playlistTitle[])
 
                 // Count number of nodes in list
                 songNode = headNode;
+                //tailnode = NULL;
+                currNode = NULL;
+                int found = 0;
+                do {
+                    if (strcmp(songNode->uniqueID, uniqueID) == 0) {
+
+                        found = 1;
+
+                        if (songNode == headNode) {
+                            headNode = songNode->nextNodePtr;
+                        }
+                        else{
+
+                            currNode->nextNodePtr = songNode->nextNodePtr;
+
+                        }
+                        printf("\"%s\" removed.\n\n", songNode->songName);
+                        free(songNode);
+
+                    }
+                    else {
+                        currNode = songNode;
+                        songNode = songNode->nextNodePtr;
+
+                    }
+
+                } while ((found == 0) && (songNode != NULL));
+
+                found = 0;
+                break;
 
                 // songNode is the song to be deleted
                 // .....
 
 
-                if (songNode == NULL) 
+                // if (songNode == NULL) 
                 {
                     // ERROR: uniqueID provided by user is invalid
                     // Do nothing
-                }
-                else 
-                {
+                    //  }
+                    //  else 
+                    //  {
                     // Remove song at songPosition from list
 
                     // If songPosition is 1, list head is removed
-                    if (songNode == headNode) 
-                    {
-                        headNode = GetNextPlaylistNode(songNode);
-                    }
-                    else 
-                    {
-                        // prevNode refers to node before the songNode
-                        // .....
+                    //   if (songNode == headNode) 
+                    //   {
+                    //headNode = GetNextPlaylistNode(songNode);
+                    //   }
+                    //  else 
+                    //  {
+                    // prevNode refers to node before the songNode
+                    // .....
 
-                        // prevNode updated so next is the node following songNode
-                        // .....
+                    // prevNode updated so next is the node following songNode
+                    // .....
 
-                    } // end of else
+        } // end of else
 
-                    printf("\"%s\" removed.\n\n", songNode->songName);
-                } // end of else
+        //  printf("\"%s\" removed.\n\n", songNode->songName);
+        //  } // end of else
 
-                break;
+        //   break;
 
 
             case 'c':
-                // Prompt user to new song location
-                printf("CHANGE POSITION OF SONG\n");
-                printf("Enter song's current position:\n");
-                scanf("%d", &songPosition);
+        // Prompt user to new song location
+        printf("CHANGE POSITION OF SONG\n");
+        printf("Enter song's current position:\n");
+        scanf("%d", &songPosition);
 
-                printf("Enter new position for song:\n");
-                scanf("%d", &newPosition);
+        printf("Enter new position for song:\n");
+        scanf("%d", &newPosition);
 
-                // Count number of nodes in list
+        // Count number of nodes in list
+        // .....
+
+        // songNode is the song to be moved
+        // .....
+
+        if (songNode == NULL) 
+        {
+            // ERROR: songPosition provided by user is invalid
+            // Do nothing
+        }
+        else 
+        {
+
+            // STEP 1: Remove song at songPosition from list. Keep reference to that song.
+
+            // If songPosition is 1, list head is removed
+            if (songNode == headNode) 
+            {
+                headNode = GetNextPlaylistNode(songNode);
+            }
+            else 
+            {
+                // prevNode refers to node before the songNode
                 // .....
 
-                // songNode is the song to be moved
+
+                // prevNode updated so next is the node following songNode
+                // .....
+            }
+
+            // STEP 2: Insert song at newPosition
+
+            // Insert songNode at head or if user position is before head
+            if (newPosition <= 1) 
+            {
+                SetNextPlaylistNode(songNode, headNode);
+                headNode = songNode;
+
+                printf("\"%s\" moved to position 1\n\n", songNode->songName);
+
+            }
+            else 
+            {
+                // insertPosNode refers to the node before the location songNode is inserted
                 // .....
 
-                if (songNode == NULL) 
+
+                // Insert songNode to new location
+                if (insertPosNode == NULL) 
                 {
-                    // ERROR: songPosition provided by user is invalid
-                    // Do nothing
+                    InsertPlaylistNodeAfter(tailNode, songNode);
+                    tailNode = songNode;
+                    newPosition = numNodes + 1;
                 }
-                else 
+                else
                 {
-
-                    // STEP 1: Remove song at songPosition from list. Keep reference to that song.
-
-                    // If songPosition is 1, list head is removed
-                    if (songNode == headNode) 
-                    {
-                        headNode = GetNextPlaylistNode(songNode);
-                    }
-                    else 
-                    {
-                        // prevNode refers to node before the songNode
-                        // .....
-
-
-                        // prevNode updated so next is the node following songNode
-                        // .....
-                    }
-
-                    // STEP 2: Insert song at newPosition
-
-                    // Insert songNode at head or if user position is before head
-                    if (newPosition <= 1) 
-                    {
-                        SetNextPlaylistNode(songNode, headNode);
-                        headNode = songNode;
-
-                        printf("\"%s\" moved to position 1\n\n", songNode->songName);
-
-                    }
-                    else 
-                    {
-                        // insertPosNode refers to the node before the location songNode is inserted
-                        // .....
-
-
-                        // Insert songNode to new location
-                        if (insertPosNode == NULL) 
-                        {
-                            InsertPlaylistNodeAfter(tailNode, songNode);
-                            tailNode = songNode;
-                            newPosition = numNodes + 1;
-                        }
-                        else
-                        {
-                            // .....
-                        }
-
-                        if (tailNode == insertPosNode) 
-                        {
-                            tailNode = songNode;
-                        }
-
-                        printf("\"%s\" moved to position %d\n\n",
-                                songNode->songName, newPosition);
-                    }
+                    // .....
                 }
-                break;
+
+                if (tailNode == insertPosNode) 
+                {
+                    tailNode = songNode;
+                }
+
+                printf("\"%s\" moved to position %d\n\n",
+                        songNode->songName, newPosition);
+            }
+        }
+        break;
 
 
             case 's':
-                // Consume newline and prompt user for output criteria
-                fgets(temp, 50, stdin);
+        // Consume newline and prompt user for output criteria
+        fgets(temp, 50, stdin);
 
-                printf("OUTPUT SONGS BY SPECIFIC ARTIST\n");
-                printf("Enter artist's name:\n");
-                fgets(artistName, 50, stdin);
-                artistName[strlen(artistName)-1] = '\0';
+        printf("OUTPUT SONGS BY SPECIFIC ARTIST\n");
+        printf("Enter artist's name:\n");
+        fgets(artistName, 50, stdin);
+        artistName[strlen(artistName)-1] = '\0';
 
-                // Search list for matching artists
-                // ....
-                // ....
-                break;
+        // Search list for matching artists
+        // ....
+        // ....
+        break;
 
 
             case 't':
-                // Output playlist messaging
-                printf("OUTPUT TOTAL TIME OF PLAYLIST (IN SECONDS)\n");
+        // Output playlist messaging
+        printf("OUTPUT TOTAL TIME OF PLAYLIST (IN SECONDS)\n");
 
-                // Total song times for each song in the list
-                currNode = headNode;
-                totalTime = 0;
+        // Total song times for each song in the list
+        currNode = headNode;
+        totalTime = 0;
 
-                while (currNode != NULL) 
-                {
-                    totalTime += currNode->songLength;
-                    currNode = GetNextPlaylistNode(currNode);
-                }
+        while (currNode != NULL) 
+        {
+            totalTime += currNode->songLength;
+            currNode = GetNextPlaylistNode(currNode);
+        }
 
-                printf("Total time: %d seconds\n\n", totalTime);
-                break;
+        printf("Total time: %d seconds\n\n", totalTime);
+        break;
 
 
             case 'o':
-                // Output playlist messaging
-                printf("%s - OUTPUT FULL PLAYLIST\n", playlistTitle);
+        // Output playlist messaging
+        printf("%s - OUTPUT FULL PLAYLIST\n", playlistTitle);
 
-                // Iterate through each song in list
-                numNodes = 1;
-                currPrintNode = headNode;
+        // Iterate through each song in list
+        numNodes = 1;
+        currPrintNode = headNode;
 
-                // If list is empty, output error message
-                if (headNode == NULL) 
-                {
-                    printf("Playlist is empty\n\n");
-                }
-                // Otherwise call print function for each node in list
-                else 
-                {
-                    while (currPrintNode != NULL) 
-                    {
-                        printf("%d.\n", numNodes);
-                        PrintPlaylistNode(currPrintNode);
-                        currPrintNode = GetNextPlaylistNode(currPrintNode);
-                        printf("\n");
-                        ++numNodes;
-                    }
-                }
-                break;
+        // If list is empty, output error message
+        if (headNode == NULL) 
+        {
+            printf("Playlist is empty\n\n");
+        }
+        // Otherwise call print function for each node in list
+        else 
+        {
+            while (currPrintNode != NULL) 
+            {
+                printf("%d.\n", numNodes);
+                PrintPlaylistNode(currPrintNode);
+                currPrintNode = GetNextPlaylistNode(currPrintNode);
+                printf("\n");
+                ++numNodes;
+            }
+        }
+        break;
 
         } // END of switch (menuOp) 
     } // END of while(menuOp != 'q') 
