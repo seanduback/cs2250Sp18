@@ -145,40 +145,6 @@ void PrintMenu(char playlistTitle[])
                 found = 0;
                 break;
 
-                // songNode is the song to be deleted
-                // .....
-
-
-                // if (songNode == NULL) 
-                {
-                    // ERROR: uniqueID provided by user is invalid
-                    // Do nothing
-                    //  }
-                    //  else 
-                    //  {
-                    // Remove song at songPosition from list
-
-                    // If songPosition is 1, list head is removed
-                    //   if (songNode == headNode) 
-                    //   {
-                    //headNode = GetNextPlaylistNode(songNode);
-                    //   }
-                    //  else 
-                    //  {
-                    // prevNode refers to node before the songNode
-                    // .....
-
-                    // prevNode updated so next is the node following songNode
-                    // .....
-
-        } // end of else
-
-        //  printf("\"%s\" removed.\n\n", songNode->songName);
-        //  } // end of else
-
-        //   break;
-
-
             case 'c':
         // Prompt user to new song location
         printf("CHANGE POSITION OF SONG\n");
@@ -187,6 +153,15 @@ void PrintMenu(char playlistTitle[])
 
         printf("Enter new position for song:\n");
         scanf("%d", &newPosition);
+        currNode = headNode;
+        if(songPosition == 1){
+            songNode = currNode;
+            afterNode = currNode->nextNodePtr;
+            currNode = currNode->nextNodePtr;
+
+
+
+
 
         // Count number of nodes in list
         // .....
