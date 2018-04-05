@@ -36,17 +36,21 @@ void PrintMenu(char playlistTitle[])
     int songPosition = 0;
     int newPosition = 0;
     int totalTime = 0;
+    int songNumber;
+    PlaylistNode* wasAfterNode = NULL;
+    PlaylistNode* newAfterNode = NULL;
+    PlaylistNode* wasBeforeNode = NULL;
+    PlaylistNode* newBeforeNode = NULL;
     // IF you follow this template, you will use 
     // at least all these pointers
     //PlaylistNode* newSong = NULL;
     PlaylistNode* currNode = NULL;
     PlaylistNode* songNode = NULL;
     //PlaylistNode* prevNode = NULL;
-    PlaylistNode* insertPosNode = NULL;
+    //PlaylistNode* insertPosNode = NULL;
     PlaylistNode* headNode = NULL;
     PlaylistNode* tailNode = NULL;
     PlaylistNode* currPrintNode = NULL;
-
 
     // Output menu option, prompt users for valid selection
     while(menuOp != 'q') 
@@ -114,7 +118,6 @@ void PrintMenu(char playlistTitle[])
 
                 // Count number of nodes in list
                 songNode = headNode;
-                //tailnode = NULL;
                 currNode = NULL;
                 int found = 0;
                 do {
@@ -146,154 +149,122 @@ void PrintMenu(char playlistTitle[])
                 break;
 
             case 'c':
-        // Prompt user to new song location
-        printf("CHANGE POSITION OF SONG\n");
-        printf("Enter song's current position:\n");
-        scanf("%d", &songPosition);
+                // Prompt user to new song location
+                printf("CHANGE POSITION OF SONG\n");
+                printf("Enter song's current position:\n");
+                scanf("%d", &songPosition);
 
-        printf("Enter new position for song:\n");
-        scanf("%d", &newPosition);
-        currNode = headNode;
-        if(songPosition == 1){
-            songNode = currNode;
-            afterNode = currNode->nextNodePtr;
-            currNode = currNode->nextNodePtr;
-
-
-
-
-
-        // Count number of nodes in list
-        // .....
-
-        // songNode is the song to be moved
-        // .....
-
-        if (songNode == NULL) 
-        {
-            // ERROR: songPosition provided by user is invalid
-            // Do nothing
-        }
-        else 
-        {
-
-            // STEP 1: Remove song at songPosition from list. Keep reference to that song.
-
-            // If songPosition is 1, list head is removed
-            if (songNode == headNode) 
-            {
-                headNode = GetNextPlaylistNode(songNode);
-            }
-            else 
-            {
-                // prevNode refers to node before the songNode
-                // .....
-
-
-                // prevNode updated so next is the node following songNode
-                // .....
-            }
-
-            // STEP 2: Insert song at newPosition
-
-            // Insert songNode at head or if user position is before head
-            if (newPosition <= 1) 
-            {
-                SetNextPlaylistNode(songNode, headNode);
-                headNode = songNode;
-
-                printf("\"%s\" moved to position 1\n\n", songNode->songName);
-
-            }
-            else 
-            {
-                // insertPosNode refers to the node before the location songNode is inserted
-                // .....
-
-
-                // Insert songNode to new location
-                if (insertPosNode == NULL) 
-                {
-                    InsertPlaylistNodeAfter(tailNode, songNode);
-                    tailNode = songNode;
-                    newPosition = numNodes + 1;
+                printf("Enter new position for song:\n");
+                scanf("%d", &newPosition);
+                currNode = headNode;
+                if(songPosition == 1){
+                    songNode  = currNode;
+                    wasAfterNode = currNode->nextNodePtr;
+                    headNode = wasAfterNode;
+                    currNode = currNode->nextNodePtr;
+                    songNumber = 2;
                 }
-                else
-                {
-                    // .....
+                else{
+                    songNumber = 1;
                 }
-
-                if (tailNode == insertPosNode) 
-                {
-                    tailNode = songNode;
+                if(newPosition == 1){
+                    newAfterNode = currNode;
                 }
-
-                printf("\"%s\" moved to position %d\n\n",
-                        songNode->songName, newPosition);
-            }
-        }
-        break;
-
+                while (currNode->nextNodePtr != NULL) {
+                    if (songNumber == songPosition - 1){
+                        wasBeforeNode = currNode;
+                        songNode = currNode->nextNodePtr;
+                        wasAfterNode = songNode->nextNodePtr;
+                    }
+                    if ((songPosition > newPosition) && (songNumber == newPosition - 1)) {
+                        newBeforeNode = currNode;
+                        newAfterNode = currNode->nextNodePtr;
+                    }
+                    if ((songPosition < newPosition) && (songNumber == newPosition)) {
+                        newBeforeNode = currNode;
+                        if (currNode->nextNodePtr != NULL) {
+                            newAfterNode = currNode->nextNodePtr;
+                        }
+                    }
+                    currNode = currNode->nextNodePtr;
+                    songNumber++;
+                }
+                songNode->nextNodePtr = newAfterNode;
+                if (newPosition == 1) {
+                    headNode   = songNode;
+                }
+                else {
+                    newBeforeNode->nextNodePtr = songNode;
+                }
+                wasBeforeNode->nextNodePtr = wasAfterNode;
+                printf("\"%s\" moved to position %d\n", songNode->songName, newPosition);
+                break;
 
             case 's':
-        // Consume newline and prompt user for output criteria
-        fgets(temp, 50, stdin);
+                // Consume newline and prompt user for output criteria
+                fgets(temp, 50, stdin);
 
-        printf("OUTPUT SONGS BY SPECIFIC ARTIST\n");
-        printf("Enter artist's name:\n");
-        fgets(artistName, 50, stdin);
-        artistName[strlen(artistName)-1] = '\0';
-
-        // Search list for matching artists
-        // ....
-        // ....
-        break;
-
+                printf("OUTPUT SONGS BY SPECIFIC ARTIST\n");
+                printf("Enter artist's name:\n");
+                fgets(artistName, 50, stdin);
+                artistName[strlen(artistName)-1] = '\0';
+                // Search list for matching artists
+                currNode = headNode;
+                songNumber = 1;
+                while(currNode != NULL){
+                    if(strcmp(artistName, currNode->artistName) == 0){
+                        printf("%d.\n", songNumber);
+                        PrintPlaylistNode(currNode);
+                    }
+                    currNode = GetNextPlaylistNode(currNode);
+                    songNumber ++;
+                }
+                break;
 
             case 't':
-        // Output playlist messaging
-        printf("OUTPUT TOTAL TIME OF PLAYLIST (IN SECONDS)\n");
+                // Output playlist messaging
+                printf("OUTPUT TOTAL TIME OF PLAYLIST (IN SECONDS)\n");
 
-        // Total song times for each song in the list
-        currNode = headNode;
-        totalTime = 0;
+                // Total song times for each song in the list
+                currNode = headNode;
+                totalTime = 0;
 
-        while (currNode != NULL) 
-        {
-            totalTime += currNode->songLength;
-            currNode = GetNextPlaylistNode(currNode);
-        }
+                while (currNode != NULL) 
+                {
+                    totalTime += currNode->songLength;
+                    currNode = GetNextPlaylistNode(currNode);
+                }
 
-        printf("Total time: %d seconds\n\n", totalTime);
-        break;
+                printf("Total time: %d seconds\n\n", totalTime);
+                break;
 
 
             case 'o':
-        // Output playlist messaging
-        printf("%s - OUTPUT FULL PLAYLIST\n", playlistTitle);
+                // Output playlist messaging
+                printf("%s - OUTPUT FULL PLAYLIST\n", playlistTitle);
 
-        // Iterate through each song in list
-        numNodes = 1;
-        currPrintNode = headNode;
+                // Iterate through each song in list
+                numNodes = 1;
+                currPrintNode = headNode;
 
-        // If list is empty, output error message
-        if (headNode == NULL) 
-        {
-            printf("Playlist is empty\n\n");
-        }
-        // Otherwise call print function for each node in list
-        else 
-        {
-            while (currPrintNode != NULL) 
-            {
-                printf("%d.\n", numNodes);
-                PrintPlaylistNode(currPrintNode);
-                currPrintNode = GetNextPlaylistNode(currPrintNode);
-                printf("\n");
-                ++numNodes;
-            }
-        }
-        break;
+                // If list is empty, output error message
+                if (headNode == NULL) 
+                {
+                    printf("Playlist is empty\n\n");
+                }
+                // Otherwise call print function for each node in list
+                else 
+                {
+                    while (currPrintNode != NULL) 
+                    {
+                        printf("%d.\n", numNodes);
+                        PrintPlaylistNode(currPrintNode);
+                        currPrintNode = GetNextPlaylistNode(currPrintNode);
+                        printf("\n");
+                        ++numNodes;
+                    }
+                }
+                break;
 
         } // END of switch (menuOp) 
     } // END of while(menuOp != 'q') 
