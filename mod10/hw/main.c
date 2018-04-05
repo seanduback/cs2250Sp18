@@ -170,7 +170,7 @@ void PrintMenu(char playlistTitle[])
                 if(newPosition == 1){
                     newAfterNode = currNode;
                 }
-                while (currNode->nextNodePtr != NULL) {
+                while (currNode != NULL) {
                     if (songNumber == songPosition - 1){
                         wasBeforeNode = currNode;
                         songNode = currNode->nextNodePtr;
@@ -188,6 +188,7 @@ void PrintMenu(char playlistTitle[])
                     }
                     currNode = currNode->nextNodePtr;
                     songNumber++;
+                    printf("while loop worked songnum %d\n", songNumber);
                 }
                 songNode->nextNodePtr = newAfterNode;
                 if (newPosition == 1) {
