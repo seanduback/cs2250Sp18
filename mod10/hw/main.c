@@ -215,9 +215,8 @@ void PrintMenu(char playlistTitle[])
                 songNumber = 1;
                 while(currNode != NULL){
                     if(strcmp(artistName, currNode->artistName) == 0){
-                        printf("%d.\n", songNumber);
+                        printf("%d.\n\n", songNumber);
                         PrintPlaylistNode(currNode);
-                        printf("\n");
                     }
                     currNode = GetNextPlaylistNode(currNode);
                     songNumber ++;
