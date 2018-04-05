@@ -42,6 +42,6 @@ void PrintPlaylistNode(PlaylistNode* thisNode)
     printf("Unique ID: %s\n", thisNode->uniqueID);
     printf("Song Name: %s\n", thisNode->songName);
     printf("Artist Name: %s\n", thisNode->artistName);
-    printf("Song Length (in seconds): %d\n\n", thisNode->songLength);
+    printf("Song Length (in seconds): %d\n", thisNode->songLength);
     return;
 }
