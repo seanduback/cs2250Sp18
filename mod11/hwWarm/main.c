@@ -58,9 +58,9 @@ int main()
                 printf ("Second word: %s\n", string3);
             }
             if (flag == 0){
-                printf ("Error: No comma in string.");
+                printf ("Error: No comma in string.\n");
             }
-            printf("\n\nEnter input string:\n");
+            printf("\n\Enter input string:\n");
             fgets(string1, 50, stdin);
             string1[strlen(string1) - 1] = '\0';
         }
