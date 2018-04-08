@@ -55,7 +55,8 @@ int main()
             i++;
         }
         dataString[j][i] = '\0';
-        sscanf(dataPoint, "%d", &dataInt[j]);
+        char dummy[50];
+        sscanf(dataPoint, "%s %d",dummy,  &dataInt[j]);
         printf("Data string: %s\n", dataString[j]);
         printf("Data integer: %d\n", dataInt[j]);
         counter ++;
@@ -63,19 +64,19 @@ int main()
     }
 
     if(flag ==  1){
-        printf("\n\t\t\t\tFORMATTED TABLE\n");
-        printf("%33s", title);
-        printf("%20s|%23s\n",col1 , col2);
+        printf("\n");
+        printf("%33s\n", title);
+        printf("%-20s|%23s\n",col1 , col2);
         printf("--------------------------------------------\n");
         j = 0;
         while (j < counter){
-            printf("%20s|%23d\n",dataString[j] , dataInt[j]);
+            printf("%-20s|%23d\n",dataString[j] , dataInt[j]);
             j++;
         }
-        printf("\n\t\t\t\tFORMATTER HISTOGRAM\n");
+        printf("\n");
         j = 0;
         while (j < counter){
-            printf("%20s", dataString[j]);
+            printf("%20s ", dataString[j]);
             while (i  < dataInt[j]){
                 printf("*");
                 i++;
