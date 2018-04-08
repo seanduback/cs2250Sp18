@@ -22,9 +22,16 @@
 // Main Function
 int main()
 {
+    char dataString[50][50];
+    int dataInt[50];
     char col1[50];
     char col2[50];
     char title[50];
+    int i = 0;
+    int j = 0;
+    char dataPoint[50];
+    int counter = 0;
+    int flag = 0;
     printf("Enter a title for the data:\n");
     fgets (title, 50, stdin);
     printf("You entered: %s\n", title);
@@ -36,9 +43,6 @@ int main()
     printf("You entered: %s\n", col2);
     col1[strlen(col1) - 1] = '\0';
     col2[strlen(col2) - 1] = '\0';
-    char dataPoint[50];
-    int counter = 0;
-    int flag = 0;
     while (flag != 1) {
         printf("Enter a data point(-1 to stop input): ");
         fgets (dataPoint, 50, stdin);
@@ -47,12 +51,8 @@ int main()
             flag = 1;
             break;
         }
-        char dataString[50][50];
-        int dataInt[50];
-        int i = 0;
-        int j = 0;
         while(dataPoint[i] != ',' && i < strlen(dataPoint)) {
-            strcpy(dataString[j][i], dataPoint[i]);
+            dataString[j][i] = dataPoint[i];
             i++;
         }
         dataString[j][i] = '\0';
@@ -66,7 +66,7 @@ int main()
     printf("%33s", title);
     printf("%20s|%23s\n",col1 , col2);
     printf("--------------------------------------------\n");
-    int j = 0;
+    j = 0;
     while (j < counter){
         printf("%20s|%23d\n",dataString[j] , dataInt[j]);
         j++;
