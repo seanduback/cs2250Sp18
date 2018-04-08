@@ -44,6 +44,7 @@ int main()
     while (flag != 1) {
         printf("Enter a data point(-1 to stop input): ");
         fgets (dataPoint, 50, stdin);
+        dataPoint[strlen(dataPoint) - 1] = '\0';
         if (strcmp(dataPoint,"-1")) {
             flag = 1;
             break;
