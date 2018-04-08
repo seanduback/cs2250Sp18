@@ -40,10 +40,12 @@ int main()
     col2[strlen(col2) - 1] = '\0';
     char dataPoint[50];
     int counter = 0;
-    while (counter < 50) {
+    int flag = 0;
+    while (flag != 1) {
         printf("Enter a data point(-1 to stop input): ");
         fgets (dataPoint, 50, stdin);
         if (strcmp(dataPoint,"-1")) {
+            flag = 1;
             break;
         }
         int i = 0;
@@ -85,20 +87,20 @@ int main()
     printf("--------------------------------------------\n");
     int i = 0;
     while (i < counter){
-    printf("%20s|%23d\n",names[i] , point[i]);
-    i++;
+        printf("%20s|%23d\n",names[i] , point[i]);
+        i++;
     }
     printf("\n\t\t\t\tFORMATTER HISTOGRAM\n");
-       i = 0;
+    i = 0;
     while (i < counter){
-    printf("%20s", names[i]);
-    int j= 0;
-    while (j  < point[i]){
-        printf("*");
-        j++;
-    }
-    printf("\n");
-    i++;
+        printf("%20s", names[i]);
+        int j= 0;
+        while (j  < point[i]){
+            printf("*");
+            j++;
+        }
+        printf("\n");
+        i++;
     }
     return 0;
 }
