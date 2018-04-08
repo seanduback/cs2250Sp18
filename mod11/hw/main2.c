@@ -75,11 +75,13 @@ int main()
         else if ( comma == 0){
             printf("No comma in string.\n");
             flag = 0;
+            i = 0;
         }
         else if ( comma > 1){
             printf("Too many commas in input.\n");
             flag = 0;
             comma = 0;
+            i = 0;
         }
 
     }
