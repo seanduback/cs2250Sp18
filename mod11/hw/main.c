@@ -41,7 +41,7 @@ int main()
     char dataPoint[50];
     int counter = 0;
     int flag = 0;
-    while (flag != 1) {
+    while (counter < 50) {
         printf("Enter a data point(-1 to stop input): ");
         fgets (dataPoint, 50, stdin);
         dataPoint[strlen(dataPoint) - 1] = '\0';
@@ -61,9 +61,11 @@ int main()
                 if (intFound == 1) {
                     commaAfterInt = 1;
                 }
-            } else if (commas == 0) {
+            } 
+            else if (commas == 0) {
                 names[counter][i] = dataPoint[i];
-            } else if (isdigit(dataPoint[i])) {
+            } 
+            else if (isdigit(dataPoint[i])) {
                 intFound = 1;
                 int j = 0;
                 for (j = 0; intValue[j] != '\0'; j++);
