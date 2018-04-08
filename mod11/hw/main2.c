@@ -30,6 +30,7 @@ int main()
     int dataInt[50];
     int counter = 0;
     int flag = 0;
+    int comma = 0;
     printf("Enter a title for the data:\n");
     fgets (title, 50, stdin);
     title[strlen(title) - 1] = '\0';
@@ -50,17 +51,37 @@ int main()
             flag = 1;
             break;
         }
-        while(dataPoint[i] != ',' && i < strlen(dataPoint)) {
+        while( i < strlen(dataPoint)) {
+            if (dataPoint[i] == ','){
+                comma ++;
+            }
+            i++;
+        }
+        i = 0;
+        if( dataPoint[i] != ',' && i < strlen(dataPoint)) {
             dataString[j][i] = dataPoint[i];
             i++;
         }
         dataString[j][i] = '\0';
-        char dummy[50];
-        sscanf(dataPoint, "%s %d",dummy,  &dataInt[j]);
-        printf("Data string: %s\n", dataString[j]);
-        printf("Data integer: %d\n", dataInt[j]);
-        counter ++;
-        j ++;
+        if (comma == 1){
+            char dummy[50];
+            sscanf(dataPoint, "%s %d",dummy,  &dataInt[j]);
+            printf("Data string: %s\n", dataString[j]);
+            printf("Data integer: %d\n", dataInt[j]);
+            counter ++;
+            j ++;
+            comma = 0;
+        }
+        else if ( comma == 0){
+            printf("No comma in string.\n");
+            flag = 0;
+        }
+        else if ( comma > 1){
+            printf("Too many commas in input.\n");
+            flag = 0;
+            comma = 0;
+        }
+
     }
 
     if(flag ==  1){
