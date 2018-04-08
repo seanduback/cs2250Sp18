@@ -47,7 +47,7 @@ int main()
         printf("Enter a data point(-1 to stop input): ");
         fgets (dataPoint, 50, stdin);
         dataPoint[strlen(dataPoint) - 1] = '\0';
-        if (strcmp(dataPoint,"-1")) {
+        if ((strcmp(dataPoint, "-1")) == 0) {
             flag = 1;
             break;
         }
@@ -61,26 +61,29 @@ int main()
         printf("Data integer: %d\n", dataInt[j]);
         counter ++;
         j ++;
-    }
-    printf("\n\t\t\t\tFORMATTED TABLE\n");
-    printf("%33s", title);
-    printf("%20s|%23s\n",col1 , col2);
-    printf("--------------------------------------------\n");
-    j = 0;
-    while (j < counter){
-        printf("%20s|%23d\n",dataString[j] , dataInt[j]);
-        j++;
-    }
-    printf("\n\t\t\t\tFORMATTER HISTOGRAM\n");
-    j = 0;
-    while (j < counter){
-        printf("%20s", dataString[j]);
-        while (i  < dataInt[j]){
-            printf("*");
-            i++;
         }
-        printf("\n");
-        j++;
+
+    if(flag ==  1){
+        printf("\n\t\t\t\tFORMATTED TABLE\n");
+        printf("%33s", title);
+        printf("%20s|%23s\n",col1 , col2);
+        printf("--------------------------------------------\n");
+        j = 0;
+        while (j < counter){
+            printf("%20s|%23d\n",dataString[j] , dataInt[j]);
+            j++;
+        }
+        printf("\n\t\t\t\tFORMATTER HISTOGRAM\n");
+        j = 0;
+        while (j < counter){
+            printf("%20s", dataString[j]);
+            while (i  < dataInt[j]){
+                printf("*");
+                i++;
+            }
+            printf("\n");
+            j++;
+        }
     }
     return 0;
 }
