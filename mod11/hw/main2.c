@@ -32,6 +32,7 @@ int main()
     int counter = 0;
     int flag = 0;
     int comma = 0;
+    int yesInt = 0;
     printf("Enter a title for the data:\n");
     fgets (title, 50, stdin);
     title[strlen(title) - 1] = '\0';
@@ -46,6 +47,7 @@ int main()
     printf("You entered: %s\n\n", col2);
     while (flag != 1) {
         comma = 0;
+        flag = 0;
         printf("Enter a data point (-1 to stop input):\n");
         fgets (dataPoint, 50, stdin);
         dataPoint[strlen(dataPoint) - 1] = '\0';
@@ -59,40 +61,43 @@ int main()
             }
             i++;
         }
-        int count = 0;
         for( i = 0; dataPoint[i] != ','; i++) {
             dataString[j][i] = dataPoint[i];
-            count ++;
-        }
-        for ( i = count; dataPoint[i] != '\0'; i++){
-            if(isdigit(dataPoint[i]) == 0){
-                dataInt[j][i] = dataPoint[i];
-            }
         }
         dataString[j][i] = '\0';
-        if (comma == 1){
-            // char dummy[50];
-            //  sscanf(dataPoint, "%s %d",dummy,  &dataInt[j]);
-            printf("Data string: %s\n", dataString[j]);
-            printf("Data integer: %d\n", *dataInt[j]);
-            counter ++;
-            j ++;
-            comma = 0;
-            i = 0;
+        for ( i = 0; dataPoint[i] != '\0'; i++){
+           if(isdigit(dataPoint[i]) == 0){
+             dataInt[j][i] = dataPoint[i];
+           yesInt = 1;
+         }
+         }
+        while (flag != 2){
+            if(yesInt == 0){
+                printf("Comma not followed by an integer.\n");
+                flag = 2;
+            }
+            if (comma == 1){
+                // char dummy[50];
+                //  sscanf(dataPoint, "%s %d",dummy,  &dataInt[j]);
+                printf("Data string: %s\n", dataString[j]);
+                printf("Data integer: %d\n", *dataInt[j]);
+                counter ++;
+                j ++;
+                comma = 0;
+                i = 0;
+                flag = 2;
+            }
+            else if ( comma == 0){
+                printf("No comma in string.\n");
+                comma = 0;
+                flag = 2;
+            }
+            else if ( comma > 1){
+                printf("Too many commas in input.\n");
+                flag = 2;
+                comma = 0;
+            }
         }
-        else if ( comma == 0){
-            printf("No comma in string.\n");
-            flag = 0;
-            i = 0;
-            comma = -1;
-        }
-        else if ( comma > 1){
-            printf("Too many commas in input.\n");
-            flag = 0;
-            comma = 0;
-            i = 0;
-        }
-
     }
 
     if(flag ==  1){
