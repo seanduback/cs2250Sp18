@@ -56,7 +56,6 @@ int main()
         for(i = 0;  i < strlen(dataPoint); i ++) {
             if (dataPoint[i] == ','){
                 comma ++;
-                // printf("test\n");
             }
         }
         for ( i = 0; dataPoint[i] != '\0'; i++){
