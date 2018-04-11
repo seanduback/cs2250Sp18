@@ -30,8 +30,8 @@ int main()
     char dataString[50][50];
     int dataInt[50];
     int counter = 0;
-    int flag = 0;
-    int comma = 0;
+    //int flag = 0;
+    int comma;
     int yesInt = 0;
     printf("Enter a title for the data:\n");
     fgets (title, 50, stdin);
@@ -45,14 +45,14 @@ int main()
     fgets (col2, 50, stdin);
     col2[strlen(col2) - 1] = '\0';
     printf("You entered: %s\n\n", col2);
-    while (flag != 1) {
+        if ((strcmp(dataPoint, "-1")) != 0) {
         printf("Enter a data point (-1 to stop input):\n");
         fgets (dataPoint, 50, stdin);
         dataPoint[strlen(dataPoint) - 1] = '\0';
-        if ((strcmp(dataPoint, "-1")) == 0) {
-            flag = 1;
-            break;
-        }
+        //if ((strcmp(dataPoint, "-1") || strcmp(dataPoint, "-1\0")) == 0) {
+          //  flag = 1;
+          //  break;
+       // }
         for(i = 0;  i < strlen(dataPoint); i ++) {
             if (dataPoint[i] == ','){
                 comma ++;
@@ -90,12 +90,13 @@ int main()
             printf("Too many commas in input.\n");
             comma = 0;
         }
-        else{
-            printf("No comma in string.\n");
-        }
+        //else if (comma == 0){
+         //   printf("No comma in string.\n");
+       // }
     }
 
-    if(flag ==  1){
+        else{
+    //if(flag ==  1){
         printf("\n");
         printf("%33s\n", title);
         printf("%-20s|%23s\n",col1 , col2);
