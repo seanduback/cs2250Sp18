@@ -52,9 +52,11 @@ int main()
             for(i = 0;  i < strlen(dataPoint); i ++) {
                 if (dataPoint[i] == ','){
                     comma ++;
-                    if(isdigit(dataPoint[i])){
-                        yesInt = 1;
-                    }
+                }
+            }
+            for(i = 0;  i < strlen(dataPoint); i ++) {
+                if(isdigit(dataPoint[i])){
+                    yesInt = 1;
                 }
             }
             if (comma == 1 && yesInt >= 1){
@@ -76,14 +78,11 @@ int main()
                     char dummy[50], dummy2[50], dummy3[50];
                     sscanf(dataPoint, "%s %s %s %d",dummy, dummy2, dummy3,  &dataInt[j]);
                 }
-                for( i = 0; dataPoint[i] != ','; i++) {
-                    dataString[j][i] = dataPoint[i];
-                }
-                dataString[j][i] = '\0';
-                if(yesInt == 0){
-                    printf("Error: Comma not followed by an integer.\n\n");
-                }
                 else{
+                    for( i = 0; dataPoint[i] != ','; i++) {
+                        dataString[j][i] = dataPoint[i];
+                    }
+                    dataString[j][i] = '\0';
                     printf("Data string: %s\n", dataString[j]);
                     printf("Data integer: %d\n", dataInt[j]);
                     counter ++;
@@ -96,12 +95,14 @@ int main()
             else if ( comma > 1){
                 printf("Error: Too many commas in input.\n\n");
                 comma = 0;
+                yesInt = 0;
             }
             else if (comma == 0){
                 printf("Error: No comma in string.\n\n");
+                yesInt = 0;
             }
-            if(yesInt == 0){
-                printf("Comma not followed by an integer.\n");
+            else if(yesInt == 0){
+                printf("Error: Comma not followed by an integer.\n\n");
                 comma = 0;
             }
             printf("Enter a data point (-1 to stop input):\n");
