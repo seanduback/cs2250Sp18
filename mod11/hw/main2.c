@@ -57,9 +57,6 @@ int main()
                     }
                 }
             }
-            if(yesInt == 0){
-                printf("Comma not followed by an integer.\n");
-            }
             if (comma == 1 && yesInt >= 1){
                 int wordNum = 0;
                 for( i = 0; dataPoint[i] != ','; i++) {
@@ -102,6 +99,10 @@ int main()
             }
             else if (comma == 0){
                 printf("Error: No comma in string.\n\n");
+            }
+            if(yesInt == 0){
+                printf("Comma not followed by an integer.\n");
+                comma = 0;
             }
             printf("Enter a data point (-1 to stop input):\n");
             fgets (dataPoint, 50, stdin);
