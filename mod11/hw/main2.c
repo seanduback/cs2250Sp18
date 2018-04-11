@@ -78,19 +78,17 @@ int main()
                     char dummy[50], dummy2[50], dummy3[50];
                     sscanf(dataPoint, "%s %s %s %d",dummy, dummy2, dummy3,  &dataInt[j]);
                 }
-                else{
-                    for( i = 0; dataPoint[i] != ','; i++) {
-                        dataString[j][i] = dataPoint[i];
-                    }
-                   // dataString[j][i] = '\0';
-                    printf("Data string: %s\n", dataString[j]);
-                    printf("Data integer: %d\n\n", dataInt[j]);
-                    counter ++;
-                    j ++;
-                    comma = 0;
-                    i = 0;
-                    yesInt = 0;
+                for( i = 0; dataPoint[i] != ','; i++) {
+                    dataString[j][i] = dataPoint[i];
                 }
+                // dataString[j][i] = '\0';
+                printf("Data string: %s\n", dataString[j]);
+                printf("Data integer: %d\n\n", dataInt[j]);
+                counter ++;
+                j ++;
+                comma = 0;
+                i = 0;
+                yesInt = 0;
             }
             else if ( comma > 1){
                 printf("Error: Too many commas in input.\n\n");
