@@ -68,7 +68,6 @@ int main()
                 for( i = 0; dataPoint[i] != ','; i++) {
                     if (dataPoint[i] == ' '){
                         wordNum ++;
-                        printf("word num %d\n", wordNum);
                     }
                 }
                 if(wordNum == 0){
@@ -97,6 +96,7 @@ int main()
                     j ++;
                     comma = 0;
                     i = 0;
+                    yesInt = 0;
                 }
             }
             else if ( comma > 1){
