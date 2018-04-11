@@ -52,18 +52,15 @@ int main()
             for(i = 0;  i < strlen(dataPoint); i ++) {
                 if (dataPoint[i] == ','){
                     comma ++;
-                }
-            }
-            for ( i = 0; dataPoint[i] != '\0'; i++){
-                if(isdigit(dataPoint[i]) == 0){
-                   // dataInt[j] = dataPoint[i];
-                    yesInt = 1;
+                    if(isdigit(dataPoint[i])){
+                        yesInt = 1;
+                    }
                 }
             }
             if(yesInt == 0){
                 printf("Comma not followed by an integer.\n");
             }
-            if (comma == 1){
+            if (comma == 1 && yesInt >= 1){
                 int wordNum = 0;
                 for( i = 0; dataPoint[i] != ','; i++) {
                     if (dataPoint[i] == ' '){
