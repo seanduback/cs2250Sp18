@@ -114,7 +114,6 @@ int main()
             break;
         }
     }
-
     printf("\n");
     printf("%33s\n", title);
     printf("%-20s|%23s\n",col1 , col2);
