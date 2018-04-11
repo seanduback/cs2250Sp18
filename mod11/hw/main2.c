@@ -44,89 +44,97 @@ int main()
     fgets (col2, 50, stdin);
     col2[strlen(col2) - 1] = '\0';
     printf("You entered: %s\n\n", col2);
-    while((strcmp(dataPoint, "-1")) != 0) {
-        printf("Enter a data point (-1 to stop input):\n");
-        fgets (dataPoint, 50, stdin);
-        dataPoint[strlen(dataPoint) - 1] = '\0';
-        for(i = 0;  i < strlen(dataPoint); i ++) {
-            if (dataPoint[i] == ','){
-                comma ++;
-            }
-        }
-        for ( i = 0; dataPoint[i] != '\0'; i++){
-            if(isdigit(dataPoint[i]) == 0){
-                dataInt[i] = dataPoint[i];
-                yesInt = 1;
-            }
-        }
-        if(yesInt == 0){
-            printf("Comma not followed by an integer.\n");
-        }
-        if (comma == 1){
-            int wordNum = 0;
-            for( i = 0; dataPoint[i] != ','; i++) {
-                if (dataPoint[i] != ' '){
-                    wordNum ++;
+    printf("Enter a data point (-1 to stop input):\n");
+    fgets (dataPoint, 50, stdin);
+    dataPoint[strlen(dataPoint) - 1] = '\0';
+    while(1){
+        if((strcmp(dataPoint, "-1")) != 0) {
+            for(i = 0;  i < strlen(dataPoint); i ++) {
+                if (dataPoint[i] == ','){
+                    comma ++;
                 }
             }
-            if(wordNum == 1){
-            char dummy[50];
-            sscanf(dataPoint, "%s %d",dummy,  &dataInt[j]);
+            for ( i = 0; dataPoint[i] != '\0'; i++){
+                if(isdigit(dataPoint[i]) == 0){
+                    dataInt[i] = dataPoint[i];
+                    yesInt = 1;
+                }
             }
-            if(wordNum == 2){
-            char dummy[50], dummy2[50];
-            sscanf(dataPoint, "%s %s %d",dummy, dummy2,  &dataInt[j]);
-            }
-            if(wordNum == 3){
-            char dummy[50], dummy2[50], dummy3[50];
-            sscanf(dataPoint, "%s %s %s %d",dummy, dummy2, dummy3,  &dataInt[j]);
-            }
-
-            for( i = 0; dataPoint[i] != ','; i++) {
-                dataString[j][i] = dataPoint[i];
-            }
-            dataString[j][i] = '\0';
             if(yesInt == 0){
                 printf("Comma not followed by an integer.\n");
             }
-            else{
-                printf("Data string: %s\n", dataString[j]);
-                printf("Data integer: %d\n", dataInt[j]);
-                counter ++;
-                j ++;
-                comma = 0;
-                i = 0;
+            if (comma == 1){
+                int wordNum = 0;
+                for( i = 0; dataPoint[i] != ','; i++) {
+                    if (dataPoint[i] != ' '){
+                        wordNum ++;
+                    }
+                }
+                if(wordNum == 1){
+                    char dummy[50];
+                    sscanf(dataPoint, "%s %d",dummy,  &dataInt[j]);
+                }
+                if(wordNum == 2){
+                    char dummy[50], dummy2[50];
+                    sscanf(dataPoint, "%s %s %d",dummy, dummy2,  &dataInt[j]);
+                }
+                if(wordNum == 3){
+                    char dummy[50], dummy2[50], dummy3[50];
+                    sscanf(dataPoint, "%s %s %s %d",dummy, dummy2, dummy3,  &dataInt[j]);
+                }
+
+                for( i = 0; dataPoint[i] != ','; i++) {
+                    dataString[j][i] = dataPoint[i];
+                }
+                dataString[j][i] = '\0';
+                if(yesInt == 0){
+                    printf("Comma not followed by an integer.\n");
+                }
+                else{
+                    printf("Data string: %s\n", dataString[j]);
+                    printf("Data integer: %d\n", dataInt[j]);
+                    counter ++;
+                    j ++;
+                    comma = 0;
+                    i = 0;
+                }
             }
+            else if ( comma > 1){
+                printf("Too many commas in input.\n");
+                comma = 0;
+            }
+            else if (comma == 0){
+                printf("No comma in string.\n");
+            }
+            printf("Enter a data point (-1 to stop input):\n");
+            fgets (dataPoint, 50, stdin);
+            dataPoint[strlen(dataPoint) - 1] = '\0';
         }
-        else if ( comma > 1){
-            printf("Too many commas in input.\n");
-            comma = 0;
-        }
-        else if (comma == 0){
-            printf("No comma in string.\n");
+        else {
+            break;
         }
     }
 
-        printf("\n");
-        printf("%33s\n", title);
-        printf("%-20s|%23s\n",col1 , col2);
-        printf("--------------------------------------------\n");
-        j = 0;
-        while (j < counter){
-            printf("%-20s|%23d\n",dataString[j] , dataInt[j]);
-            j++;
+    printf("\n");
+    printf("%33s\n", title);
+    printf("%-20s|%23s\n",col1 , col2);
+    printf("--------------------------------------------\n");
+    j = 0;
+    while (j < counter){
+        printf("%-20s|%23d\n",dataString[j] , dataInt[j]);
+        j++;
+    }
+    printf("\n");
+    j = 0;
+    while (j < counter){
+        printf("%20s ", dataString[j]);
+        while (i  < dataInt[j]){
+            printf("*");
+            i++;
         }
         printf("\n");
-        j = 0;
-        while (j < counter){
-            printf("%20s ", dataString[j]);
-            while (i  < dataInt[j]){
-                printf("*");
-                i++;
-            }
-            printf("\n");
-            j++;
-        }
+        j++;
+    }
     return 0;
 }
 // Function Definitions
