@@ -84,7 +84,7 @@ int main()
                     }
                     dataString[j][i] = '\0';
                     printf("Data string: %s\n", dataString[j]);
-                    printf("Data integer: %d\n", dataInt[j]);
+                    printf("Data integer: %d\n\n", dataInt[j]);
                     counter ++;
                     j ++;
                     comma = 0;
@@ -126,9 +126,8 @@ int main()
     j = 0;
     while (j < counter){
         printf("%20s ", dataString[j]);
-        while (i  < dataInt[j]){
+        for (i= 0; i  < dataInt[j]; i++){
             printf("*");
-            i++;
         }
         printf("\n");
         j++;
