@@ -46,7 +46,7 @@ int main()
     printf("You entered: %s\n\n", col2);
     printf("Enter a data point (-1 to stop input):\n");
     fgets (dataPoint, 50, stdin);
-    dataPoint[strlen(dataPoint) - 1] = '\0';
+    //dataPoint[strlen(dataPoint) - 1] = '\0';
     while(1){
         if((strcmp(dataPoint, "-1")) != 0) {
             for(i = 0;  i < strlen(dataPoint); i ++) {
@@ -107,7 +107,7 @@ int main()
             }
             printf("Enter a data point (-1 to stop input):\n");
             fgets (dataPoint, 50, stdin);
-            dataPoint[strlen(dataPoint) - 1] = '\0';
+            //dataPoint[strlen(dataPoint) - 1] = '\0';
         }
         else {
             break;
