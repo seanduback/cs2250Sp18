@@ -61,20 +61,20 @@ int main()
             }
             if (comma == 1 && yesInt >= 1){
                 int wordNum = 0;
-                for( i = 0; dataPoint[i] != ','; i++) {
+                for( i = 0; dataPoint[i] != '\0'; i++) {
                     if (dataPoint[i] == ' '){
                         wordNum ++;
                     }
                 }
-                if(wordNum == 0){
+                if(wordNum == 1){
                     char dummy[50];
                     sscanf(dataPoint, "%s %d",dummy,  &dataInt[j]);
                 }
-                if(wordNum == 1){
+                if(wordNum == 2){
                     char dummy[50], dummy2[50];
                     sscanf(dataPoint, "%s %s %d",dummy, dummy2,  &dataInt[j]);
                 }
-                if(wordNum == 2){
+                if(wordNum == 3){
                     char dummy[50], dummy2[50], dummy3[50];
                     sscanf(dataPoint, "%s %s %s %d",dummy, dummy2, dummy3,  &dataInt[j]);
                 }
@@ -82,7 +82,7 @@ int main()
                     for( i = 0; dataPoint[i] != ','; i++) {
                         dataString[j][i] = dataPoint[i];
                     }
-                    dataString[j][i] = '\0';
+                   // dataString[j][i] = '\0';
                     printf("Data string: %s\n", dataString[j]);
                     printf("Data integer: %d\n\n", dataInt[j]);
                     counter ++;
