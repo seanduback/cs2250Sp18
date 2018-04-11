@@ -81,7 +81,7 @@ int main()
                 for( i = 0; dataPoint[i] != ','; i++) {
                     dataString[j][i] = dataPoint[i];
                 }
-                // dataString[j][i] = '\0';
+                dataString[j][i] = '\0';
                 printf("Data string: %s\n", dataString[j]);
                 printf("Data integer: %d\n\n", dataInt[j]);
                 counter ++;
