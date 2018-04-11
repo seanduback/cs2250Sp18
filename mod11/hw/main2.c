@@ -56,7 +56,6 @@ int main()
             }
             for ( i = 0; dataPoint[i] != '\0'; i++){
                 if(isdigit(dataPoint[i]) == 0){
-                    dataInt[i] = dataPoint[i];
                     yesInt = 1;
                 }
             }
@@ -88,7 +87,7 @@ int main()
                 }
                 dataString[j][i] = '\0';
                 if(yesInt == 0){
-                    printf("Comma not followed by an integer.\n");
+                    printf("Comma not followed by an integer.\n\n");
                 }
                 else{
                     printf("Data string: %s\n", dataString[j]);
@@ -100,11 +99,11 @@ int main()
                 }
             }
             else if ( comma > 1){
-                printf("Too many commas in input.\n");
+                printf("Too many commas in input.\n\n");
                 comma = 0;
             }
             else if (comma == 0){
-                printf("No comma in string.\n");
+                printf("No comma in string.\n\n");
             }
             printf("Enter a data point (-1 to stop input):\n");
             fgets (dataPoint, 50, stdin);
