@@ -46,7 +46,7 @@ int main()
     printf("You entered: %s\n\n", col2);
     printf("Enter a data point (-1 to stop input):\n");
     fgets (dataPoint, 50, stdin);
-    //dataPoint[strlen(dataPoint) - 1] = '\0';
+    dataPoint[strlen(dataPoint) - 1] = '\0';
     while(1){
         if((strcmp(dataPoint, "-1")) != 0) {
             for(i = 0;  i < strlen(dataPoint); i ++) {
@@ -56,6 +56,7 @@ int main()
             }
             for ( i = 0; dataPoint[i] != '\0'; i++){
                 if(isdigit(dataPoint[i]) == 0){
+                    dataInt[j] = dataPoint[i];
                     yesInt = 1;
                 }
             }
@@ -63,25 +64,24 @@ int main()
                 printf("Comma not followed by an integer.\n");
             }
             if (comma == 1){
-                int wordNum = 0;
-                for( i = 0; dataPoint[i] != ','; i++) {
-                    if (dataPoint[i] != ' '){
-                        wordNum ++;
-                    }
-                }
-                if(wordNum == 1){
-                    char dummy[50];
-                    sscanf(dataPoint, "%s %d",dummy,  &dataInt[j]);
-                }
-                if(wordNum == 2){
-                    char dummy[50], dummy2[50];
-                    sscanf(dataPoint, "%s %s %d",dummy, dummy2,  &dataInt[j]);
-                }
-                if(wordNum == 3){
-                    char dummy[50], dummy2[50], dummy3[50];
-                    sscanf(dataPoint, "%s %s %s %d",dummy, dummy2, dummy3,  &dataInt[j]);
-                }
-
+                // int wordNum = 0;
+                // for( i = 0; dataPoint[i] != ','; i++) {
+                //     if (dataPoint[i] != ' '){
+                //          wordNum ++;
+                //       }
+                //   }
+                //    if(wordNum == 1){
+                //        char dummy[50];
+                //        sscanf(dataPoint, "%s %d",dummy,  &dataInt[j]);
+                //     }
+                //    if(wordNum == 2){
+                //         char dummy[50], dummy2[50];
+                //        sscanf(dataPoint, "%s %s %d",dummy, dummy2,  &dataInt[j]);
+                //     }
+                // if(wordNum == 3){
+                //          char dummy[50], dummy2[50], dummy3[50];
+                //          sscanf(dataPoint, "%s %s %s %d",dummy, dummy2, dummy3,  &dataInt[j]);
+                //    }
                 for( i = 0; dataPoint[i] != ','; i++) {
                     dataString[j][i] = dataPoint[i];
                 }
@@ -107,7 +107,7 @@ int main()
             }
             printf("Enter a data point (-1 to stop input):\n");
             fgets (dataPoint, 50, stdin);
-            //dataPoint[strlen(dataPoint) - 1] = '\0';
+            dataPoint[strlen(dataPoint) - 1] = '\0';
         }
         else {
             break;
