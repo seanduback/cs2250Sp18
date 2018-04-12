@@ -45,8 +45,11 @@ int main()
     Person p3(4, "sean", 33.3); 
     p3.ShowInfo();
 
-    //  Person p4(66);
-    //p4.ShowInfo();
+     Person p4(66, "waldo", 57.4);
+     p4.ShowInfo();
+
+     p2 = p3 + p4;
+     p2.ShowInfo();
     //define an array of 4 persons and set their values to defaults
     //display all members of the array
     return 0;

@@ -60,3 +60,12 @@ void Person::ShowInfo() const{ // conste getter
     cout<<"Weight is "<<this->weight<<endl;
     return;
 }
+Person Person::operator+(Person rhs){//operator + overload
+    Person tmp;
+    //Add elements
+    tmp.age = age + rhs.age;
+    tmp.name = name + " " + rhs.name;
+    tmp.weight = weight + rhs.weight;
+
+    return tmp;
+}

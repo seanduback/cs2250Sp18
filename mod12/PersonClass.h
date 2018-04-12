@@ -41,7 +41,9 @@ class Person{
         void SetWeight(double w);
         double GetWeight();
 
-        void ShowInfo() const; // conste getter
+        void ShowInfo() const; // constant getter
+
+        Person operator+(Person rhs);//operator + overload
 };
 
 #endif /* ----- #ifndef PERSONCLASS__INC__ ----- */
