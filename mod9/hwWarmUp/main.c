@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "ItemToPurchase.h"
+#include "ShoppingCart.h"
 // Function Prototypes
 
 // Main Function
@@ -24,6 +24,7 @@ int main()
     int i;
     char name[128];
     ItemToPurchase item[2];
+    ShoppingCart cart[2];
 
     /*prompt for user inputs*/
     for(i = 0; i <len ;i++ ) {

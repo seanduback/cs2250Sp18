@@ -16,40 +16,22 @@
  * =====================================================================================
  */
 //#include <stdio.h> //For C
-#include <iostream>  //For C++
-using namespace std; //For C++
+#include "PersonClass.h"
 
-// Constants
-class Person{
-    private:
-        int age;
-        string name;
-        double weight;
-    public:
-        void SetAge(int a);
-        int GetAge();
+//Constructor
+Person::Person(){
+    //Init all/Most of your variables or attributes
+        age = 0;
+        name = "None";
+        weight = 0.0;
+        return;
+}
 
-        void SetName(string n);
-        string GetName();
-        
-        void SetWeight(double w);
-        double GetWeight();
-};
-
-// Function Prototypes
-
-// Main Function
-int main()
-{
-    Person p1;
-    p1.SetAge(21);
-    p1.SetName("Waldo");
-    p1.SetWeight(200);
-    cout<<"Age is "<<p1.GetAge()<<endl;
-    cout<<"Name is "<<p1.GetName()<<endl;
-    cout<<"Weight is "<<p1.GetWeight()<<endl;
-
-    return 0;
+Person::Person(int a, string n, double w){ //second constructor
+    age = a;
+    name = n;
+    weight = w;
+    return;
 }
 // Function Definitions
 void Person::SetAge(int a){
@@ -70,5 +52,11 @@ void Person::SetWeight(double w){
 double Person::GetWeight(){
     return weight;
 }
-
-
+void Person::ShowInfo() const{ // conste getter
+    //The "this" pointer is an alias to
+    //the object itself
+    cout<<"Age is "<<this->age<<endl;
+    cout<<"Name is "<<this->name<<endl;
+    cout<<"Weight is "<<this->weight<<endl;
+    return;
+}
