@@ -17,6 +17,8 @@
  */
 //#include <stdio.h> //For C
 #include "ItemToPurchase.h"
+#include <iostream>  //For C++
+using namespace std; //For C++
 // Main Function
 int main()
 {
