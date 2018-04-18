@@ -31,7 +31,7 @@ int totalCost=0;
 
 cout<<"Item 1:"<<endl;
 cout<<"Enter the item name : ";
-cin>>name;
+getline(cin,name);
 cout<<"Enter the item price : ";
 cin>>price;
 cout<<"Enter the item quantity : ";
@@ -41,7 +41,7 @@ item1.setItemPrice(price);
 item1.setItemQuantity(quan);
 cout<<"Item 2:"<<endl;
 cout<<"Enter the item name : ";
-cin>>name;
+getline(cin,name);
 cout<<"Enter the item price : ";
 cin>>price;
 cout<<"Enter the item quantity : ";
