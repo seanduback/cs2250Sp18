@@ -13,8 +13,8 @@ class ShoppingCart
         ShoppingCart();
         ShoppingCart(string name, string date);
 
-        string GetCustomerName() const;
-        string GetDate() const;
+        string GetCustomerName();
+        string GetDate();
 
         void AddItem(ItemToPurchase item);
         void RemoveItem(string name);

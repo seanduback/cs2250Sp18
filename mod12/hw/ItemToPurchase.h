@@ -17,11 +17,13 @@ class ItemToPurchase
     public:
 
         ItemToPurchase();
-        ItemToPurchase(string name, string description, 
-                int price, int quantity = 1);
+        ItemToPurchase(string name, string descr, int price, int quantity);
 
         void SetName(string name);
         string GetName();
+
+        void SetDescription(string description);
+        string GetDescription();
 
         void SetPrice(int itemPrice);
         int GetPrice();
@@ -32,10 +34,6 @@ class ItemToPurchase
         void PrintItemCost();
         void PrintItemDescription();
 
-        void SetDescription(string description);
-        string GetDescription();
-        
 };
-
 
 #endif

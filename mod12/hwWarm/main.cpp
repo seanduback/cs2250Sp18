@@ -34,6 +34,7 @@ int main()
     cout<<"Item 1"<<endl;
     cout<<"Enter the item name:\n";
     getline(cin, name1);
+    cin.ignore();
     cout<<"Enter the item price:\n";
     cin>>price;
     cout<<"Enter the item quantity:\n";
@@ -45,6 +46,7 @@ int main()
     cout<<"Item 2"<<endl;
     cout<<"Enter the item name:\n";
     getline(cin, name2);
+    cin.ignore();
     cout<<"Enter the item price:\n";
     cin>>price;
     cout<<"Enter the item quantity:\n";
