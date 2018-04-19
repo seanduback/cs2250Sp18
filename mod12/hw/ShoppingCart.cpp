@@ -89,10 +89,10 @@ void ShoppingCart::PrintDescriptions(){
     if(cartItems.empty()){
         cout<<"SHOPPING CART IS EMPTY"<<endl;
     }
-    cout<<customerName<<"'s Shopping Cart - \n"<<currentDate<<endl;
+    cout<<customerName<<"'s Shopping Cart - "<<currentDate<<endl;
+    cout<<endl;
     cout<<"Item Descriptions"<<endl;
     for(int i = 0; i < cartItems.size(); i ++){
         cartItems[i].PrintItemDescription();
     }
-    cout<<endl;
 }
