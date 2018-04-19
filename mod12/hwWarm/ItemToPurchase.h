@@ -30,14 +30,14 @@ class ItemToPurchase
     public:
 
         ItemToPurchase();
-        void setItemName(string name);
-        string getItemName();
+        void SetName(string name);
+        string GetName();
 
-        void setItemPrice(int itemPrice);
-        int getItemPrice();
+        void SetPrice(int itemPrice);
+        int GetPrice();
 
-        void setItemQuantity(int itemQuantity);
-        int getItemQuantity();
+        void SetQuantity(int itemQuantity);
+        int GetQuantity();
 
 };
 

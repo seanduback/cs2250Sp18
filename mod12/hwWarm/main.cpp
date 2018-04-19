@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-//#include <stdio.h> //For C
+#include <stdio.h> //For C
 #include "ItemToPurchase.h"
 #include <iostream>  //For C++
 using namespace std; //For C++
@@ -23,40 +23,40 @@ using namespace std; //For C++
 int main()
 {
 
-ItemToPurchase item1,item2;
-string name ;
-int price;
-int quan ;
-int totalCost=0;
+    ItemToPurchase item1,item2;
+    string name ;
+    int price;
+    int quan ;
+    int totalCost=0;
 
-cout<<"Item 1:"<<endl;
-cout<<"Enter the item name : ";
-getline(cin,name);
-cout<<"Enter the item price : ";
-cin>>price;
-cout<<"Enter the item quantity : ";
-cin>>quan;
-item1.setItemName(name);
-item1.setItemPrice(price);
-item1.setItemQuantity(quan);
-cout<<"Item 2:"<<endl;
-cout<<"Enter the item name : ";
-getline(cin,name);
-cout<<"Enter the item price : ";
-cin>>price;
-cout<<"Enter the item quantity : ";
-cin>>quan;
-item2.setItemName(name);
-item2.setItemPrice(price);
-item2.setItemQuantity(quan);
+    cout<<"Item 1:"<<endl;
+    cout<<"Enter the item name :\n";
+    getline(cin,name);
+    cout<<"Enter the item price :\n";
+    cin>>price;
+    cout<<"Enter the item quantity :\n";
+    cin>>quan;
+    item1.SetName(name);
+    item1.SetPrice(price);
+    item1.SetQuantity(quan);
+    cout<<"Item 2:"<<endl;
+    cout<<"Enter the item name :\n";
+    getline(cin,name);
+    cout<<"Enter the item price :\n";
+    cin>>price;
+    cout<<"Enter the item quantity :\n";
+    cin>>quan;
+    item2.SetName(name);
+    item2.SetPrice(price);
+    item2.SetQuantity(quan);
 
-cout<<"TOTAL COST : "<<endl;
-cout<<item1.getItemName()<<" "<<item1.getItemQuantity()<<" @ $"<<item1.getItemPrice()<<" = "<<(item1.getItemQuantity()*item1.getItemPrice())<<endl;
-cout<<item2.getItemName()<<" "<<item2.getItemQuantity()<<" @ $"<<item2.getItemPrice()<<" = "<<(item2.getItemQuantity()*item2.getItemPrice())<<endl;
-totalCost=(item1.getItemQuantity()*item1.getItemPrice())+(item2.getItemQuantity()*item2.getItemPrice());
-cout<<"Total : $"<<totalCost<<endl;
+    cout<<"TOTAL COST :\n"<<endl;
+    cout<<item1.GetName()<<" "<<item1.GetQuantity()<<" @ $"<<item1.GetPrice()<<" = "<<(item1.GetQuantity()*item1.GetPrice())<<endl;
+    cout<<item2.GetName()<<" "<<item2.GetQuantity()<<" @ $"<<item2.GetPrice()<<" = "<<(item2.GetQuantity()*item2.GetPrice())<<endl;
+    totalCost=(item1.GetQuantity()*item1.GetPrice())+(item2.GetQuantity()*item2.GetPrice());
+    cout<<"Total : $"<<totalCost<<endl;
 
-  return 0;
+    return 0;
 }
 
 

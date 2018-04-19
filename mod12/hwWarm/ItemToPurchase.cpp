@@ -28,24 +28,24 @@ ItemToPurchase::ItemToPurchase(){
     this->itemQuantity=0;
     return;
 }
-void ItemToPurchase::setItemName(string name){
+void ItemToPurchase::SetName(string name){
     this->itemName=name;
 }
-string ItemToPurchase::getItemName(){
+string ItemToPurchase::GetName(){
     return itemName;
 }
 
-void ItemToPurchase::setItemPrice(int price){
+void ItemToPurchase::SetPrice(int price){
     this->itemPrice=price;
 }
-int ItemToPurchase::getItemPrice(){
+int ItemToPurchase::GetPrice(){
     return itemPrice;
 }
 
-void ItemToPurchase::setItemQuantity(int quan){
+void ItemToPurchase::SetQuantity(int quan){
     this->itemQuantity=quan;
 }
-int ItemToPurchase::getItemQuantity(){
+int ItemToPurchase::GetQuantity(){
     return itemQuantity;
 }
 
