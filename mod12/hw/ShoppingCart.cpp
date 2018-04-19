@@ -33,27 +33,27 @@ void ShoppingCart::RemoveItem(string name){
             return;
         }
     }
-    cout<<"Item not found in car. Nothing removed."<<endl;
+    cout<<"Item not found in cart. Nothing removed."<<endl;
 }
 
-void ShoppingCart::ModifyItem(ItemToPurchase item){
+void ShoppingCart::ModifyItem(ItemToPurchase thisItem){
     bool flag = false;
     for(vector<ItemToPurchase>::iterator iter = cartItems.begin(); iter != cartItems.end(); iter ++){
-        if((*iter).GetName() == item.GetName()){
+        if((*iter).GetName() == thisItem.GetName()){
             flag = true;
-            if(item.GetDescription() != "none"){
-                item.SetDescription(item.GetDescription());
+            if(thisItem.GetDescription() != "none"){
+                thisItem.SetDescription(thisItem.GetDescription());
             }
-            if(item.GetPrice() != 0){
-                item.SetPrice(item.GetPrice());
+            if(thisItem.GetPrice() != 0){
+                thisItem.SetPrice(thisItem.GetPrice());
             }
-            if(item.GetQuantity() != 0){
-                item.SetQuantity(item.GetQuantity());
+            if(thisItem.GetQuantity() != 0){
+                thisItem.SetQuantity(thisItem.GetQuantity());
             }
         }
     }
     if(flag == false){
-        cout<<"Item not found in cart. Nothing modified"<<endl;
+        cout<<"Item not found in cart. Nothing modified."<<endl;
     }
 }
 
@@ -84,7 +84,6 @@ void ShoppingCart::PrintTotal(){
         cartItems[i].PrintItemCost();
     }
     cout<<"\nTotal: $"<<GetCostOfCart()<<endl;
-    cout<<endl;
 }
 void ShoppingCart::PrintDescriptions(){
     if(cartItems.empty()){
