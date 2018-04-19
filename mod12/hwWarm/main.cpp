@@ -24,33 +24,36 @@ int main()
 {
 
     ItemToPurchase item1,item2;
-    string name ;
+    string name1;
+    string name2;
     int price;
     int quan ;
     int totalCost=0;
 
-    cout<<"Item 1:"<<endl;
-    cout<<"Enter the item name :\n";
-    getline(cin,name);
-    cout<<"Enter the item price :\n";
+    cout<<"Item 1"<<endl;
+    cout<<"Enter the item name:\n";
+    cin>>name1;
+    cout<<"Enter the item price:\n";
     cin>>price;
-    cout<<"Enter the item quantity :\n";
+    cout<<"Enter the item quantity:\n";
     cin>>quan;
-    item1.SetName(name);
+    item1.SetName(name1);
     item1.SetPrice(price);
     item1.SetQuantity(quan);
-    cout<<"Item 2:"<<endl;
-    cout<<"Enter the item name :\n";
-    getline(cin,name);
-    cout<<"Enter the item price :\n";
+    cout<<endl;
+    cout<<"Item 2"<<endl;
+    cout<<"Enter the item name:\n";
+    cin>>name2;
+    cout<<"Enter the item price:\n";
     cin>>price;
-    cout<<"Enter the item quantity :\n";
+    cout<<"Enter the item quantity:\n";
     cin>>quan;
-    item2.SetName(name);
+    item2.SetName(name2);
     item2.SetPrice(price);
     item2.SetQuantity(quan);
+    cout<<endl;
 
-    cout<<"TOTAL COST :\n"<<endl;
+    cout<<"TOTAL COST"<<endl;
     cout<<item1.GetName()<<" "<<item1.GetQuantity()<<" @ $"<<item1.GetPrice()<<" = "<<(item1.GetQuantity()*item1.GetPrice())<<endl;
     cout<<item2.GetName()<<" "<<item2.GetQuantity()<<" @ $"<<item2.GetPrice()<<" = "<<(item2.GetQuantity()*item2.GetPrice())<<endl;
     totalCost=(item1.GetQuantity()*item1.GetPrice())+(item2.GetQuantity()*item2.GetPrice());
