@@ -18,6 +18,7 @@
 #include <stdio.h> //For C
 #include "ItemToPurchase.h"
 #include <iostream>  //For C++
+#include <string>
 using namespace std; //For C++
 // Main Function
 int main()
@@ -32,7 +33,7 @@ int main()
 
     cout<<"Item 1"<<endl;
     cout<<"Enter the item name:\n";
-    cin>>name1;
+    getline(cin, name1);
     cout<<"Enter the item price:\n";
     cin>>price;
     cout<<"Enter the item quantity:\n";
@@ -43,7 +44,7 @@ int main()
     cout<<endl;
     cout<<"Item 2"<<endl;
     cout<<"Enter the item name:\n";
-    cin>>name2;
+    getline(cin, name2);
     cout<<"Enter the item price:\n";
     cin>>price;
     cout<<"Enter the item quantity:\n";
