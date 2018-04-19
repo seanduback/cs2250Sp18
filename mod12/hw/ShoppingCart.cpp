@@ -81,7 +81,7 @@ void ShoppingCart::PrintTotal(){
         cartItems[i].PrintItemCost();
     }
     if(cartItems.empty()){
-             cout<<"\nSHOPPING CART IS EMPTY"<<endl;
+             cout<<"SHOPPING CART IS EMPTY"<<endl;
     }
     cout<<"\nTotal: $"<<GetCostOfCart()<<endl;
 }
