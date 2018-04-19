@@ -39,16 +39,16 @@ void ShoppingCart::RemoveItem(string name){
 void ShoppingCart::ModifyItem(ItemToPurchase thisItem){
     bool flag = false;
     for(vector<ItemToPurchase>::iterator iter = cartItems.begin(); iter != cartItems.end(); iter ++){
-        if((*iter).GetName() == thisItem.GetName()){
+          if ( iter->GetName() == thisItem.GetName()){
             flag = true;
             if(thisItem.GetDescription() != "none"){
-                thisItem.SetDescription(thisItem.GetDescription());
+                iter->SetDescription(thisItem.GetDescription());
             }
             if(thisItem.GetPrice() != 0){
-                thisItem.SetPrice(thisItem.GetPrice());
+                iter->SetPrice(thisItem.GetPrice());
             }
             if(thisItem.GetQuantity() != 0){
-                thisItem.SetQuantity(thisItem.GetQuantity());
+                iter->SetQuantity(thisItem.GetQuantity());
             }
         }
     }
