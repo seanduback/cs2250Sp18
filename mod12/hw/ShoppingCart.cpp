@@ -74,9 +74,6 @@ double ShoppingCart::GetCostOfCart(){
 }
 
 void ShoppingCart::PrintTotal(){
-    if(cartItems.empty()){
-        cout<<"SHOPPING CART IS EMPTY"<<endl;
-    }
     cout<<customerName<<"'s Shopping Cart - "<<currentDate<<endl;
     cout<<"Number of Items: "<<GetNumItemsInCart()<<endl;
     cout<<endl;
